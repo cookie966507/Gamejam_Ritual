@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using TeamUtility.IO;
+using Assets.Scripts.Level;
+using System;
 
 namespace Assets.Scripts.Player
 {
@@ -9,7 +11,7 @@ namespace Assets.Scripts.Player
     /// such as movement, data , etc
     /// Will also allow the different components to talk to one another
     /// </summary>
-    public class Controller : MonoBehaviour
+    public class Controller : SpriteObject
     {
         // ID for identifying which player is accepting input
         [SerializeField]
@@ -27,7 +29,7 @@ namespace Assets.Scripts.Player
 
         void Start()
         {
-
+            base.Init();
         }
 
         /// <summary>
@@ -43,6 +45,7 @@ namespace Assets.Scripts.Player
             life.Controller = this;
             movement.Controller = this;
 
+            active = true;
         }
 
         /// <summary>
@@ -50,6 +53,7 @@ namespace Assets.Scripts.Player
         /// </summary>
         public void Disable()
         {
+            active = false;
            gameObject.SetActive(false);
         }
 
@@ -58,12 +62,13 @@ namespace Assets.Scripts.Player
         /// </summary>
         public void Enable()
         {
+            active = true;
            gameObject.SetActive(true);
 
         }
 
         #region C# Properties
-       
+
         /// <summary>
         /// Life component of the player
         /// </summary>

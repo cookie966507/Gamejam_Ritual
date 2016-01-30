@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 namespace Assets.Scripts.Player
 {
@@ -13,6 +12,11 @@ namespace Assets.Scripts.Player
         private float rotationSpeed = 0.1f, rotationVel = 0f, targetZRotation = 360, currentZRotation = 0f;
         private float rollVel = 0f;
 
+        void OnDisable()
+        {
+            Reset();
+        }
+
         void Update()
         {
             if(rolling)
@@ -21,11 +25,7 @@ namespace Assets.Scripts.Player
                 rollSlerp = Mathf.SmoothDamp(rollSlerp, targetSlerp, ref rollVel, slerpSpeed);
                 if(rollTimer >= rollTime)
                 {
-                    rollTimer = 0;
-                    rolling = false;
-                    rollSlerp = rollSpeed;
-                    currentZRotation = 0f;
-                    transform.rotation = Quaternion.Euler(0, 0, currentZRotation);
+                    Reset();
                 }
                 else
                 {
@@ -47,6 +47,7 @@ namespace Assets.Scripts.Player
                 transform.Translate(Vector3.right * moveSpeed * Time.deltaTime * ratio, Space.World);
                 facingRight = true;
             }
+            controller.UpdateSortingLayer();
         }
         public void MoveVertical(int dir, float ratio = 1f)
         {
@@ -59,6 +60,7 @@ namespace Assets.Scripts.Player
             {
                 transform.Translate(Vector3.up * moveSpeed * Time.deltaTime * ratio, Space.World);
             }
+            controller.UpdateSortingLayer();
         }
 
         public void InitRoll()
@@ -77,6 +79,15 @@ namespace Assets.Scripts.Player
                 transform.Translate(Vector3.left * rollSlerp * Time.deltaTime, Space.World);
 
             currentZRotation = Mathf.SmoothDamp(currentZRotation, targetZRotation, ref rotationVel, rotationSpeed);
+            transform.rotation = Quaternion.Euler(0, 0, currentZRotation);
+        }
+
+        public void Reset()
+        {
+            rollTimer = 0;
+            rolling = false;
+            rollSlerp = rollSpeed;
+            currentZRotation = 0f;
             transform.rotation = Quaternion.Euler(0, 0, currentZRotation);
         }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Assets.Scripts.Level;
 using Assets.Scripts.Player;
-//using Assets.Scripts.Timers;
+using Assets.Scripts.Timers;
 //using Assets.Scripts.Util;
 using TeamUtility.IO;
 
@@ -107,7 +107,21 @@ namespace Assets.Scripts.Data
             if (deadPlayer != null)
             {
                 // Initialize the respawn timer
-                // Find an appropriate spawning pod (set to default for now)
+                // Initialize the respawn timer
+                CountdownTimer t = gameObject.AddComponent<CountdownTimer>();
+                t.Initialize(3f, deadPlayer.ID.ToString());
+                t.TimeOut += new CountdownTimer.TimerEvent(ResawnHelper);
+
+            }
+        }
+
+        private void ResawnHelper(CountdownTimer t)
+        {
+            // Find the dead player again
+            Controller deadPlayer = controllers.Find(x => x.ID.Equals(System.Enum.Parse(typeof(PlayerID), t.ID)));
+            RespawnNode playerNode = respawnNodes.Find(x => x.ID.Equals(System.Enum.Parse(typeof(PlayerID), t.ID)));
+            if (deadPlayer != null)
+            {
                 deadPlayer.transform.position = playerNode.transform.position;
                 // Let the player revive itself
                 deadPlayer.LifeComponent.Respawn();
