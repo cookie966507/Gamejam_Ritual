@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TeamUtility.IO;
+using Assets.Scripts.Level;
 
 namespace Assets.Scripts.Player
 {
@@ -9,9 +10,17 @@ namespace Assets.Scripts.Player
     /// </summary>
     public class PlayerController : Controller
     {
-        void Update()
+        private bool pickedUpThisTurn;
+
+        new void Update()
         {
             base.Update();
+            if(heldObject != null)
+            {
+                heldObject.transform.position = transform.position + new Vector3(0, 0.1f, 0);
+                heldObject.Sprite.transform.position = holdPoint.position;
+                heldObject.UpdateSortingLayer();
+            }
             if (Active)
             {
                 float hor = InputManager.GetAxis("Horizontal_P" + (int)id, id);
@@ -34,15 +43,41 @@ namespace Assets.Scripts.Player
                     movement.MoveVertical(-1, Mathf.Abs(vert));
                 }
 
-                if (InputManager.GetButtonDown("B_P" + (int)id, id))
+                if (InputManager.GetButtonDown("B_P" + (int)id, id) && !heldObject)
                 {
                     movement.InitRoll();
                 }
 
-                if(Input.GetKeyDown(KeyCode.Space))
+                if (InputManager.GetButtonDown("Y_P" + (int)id, id))
+                {
+                    if (pickedUpThisTurn)
+                        pickedUpThisTurn = false;
+                    else
+                        ThrowObject();
+                }
+
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     sprite.position = transform.position + new Vector3(0, 10, 0);
                     falling = true;
+                }
+            }
+        }
+
+        void OnTriggerStay2D(Collider2D col)
+        {
+            if (heldObject) return;
+            if (InputManager.GetButtonDown("Y_P" + (int)id, id))
+            {
+                heldObject = col.GetComponent<SpriteObject>();
+                if (heldObject != null)
+                {
+                    pickedUpThisTurn = true;
+                    heldObject.Active = false;
+                    heldObject.Falling = false;
+                    heldObject.transform.parent = transform;
+                    heldObject.Sprite.position = holdPoint.position;
+                    movement.MoveSpeed /= 2;
                 }
             }
         }

@@ -21,6 +21,11 @@ namespace Assets.Scripts.Player
         protected Movement movement;
         protected Life life;
 
+        [SerializeField]
+        protected Transform holdPoint;
+
+        protected SpriteObject heldObject;
+
         void Awake()
         {
             // Init all componenets
@@ -48,12 +53,27 @@ namespace Assets.Scripts.Player
             active = true;
         }
 
+        public void ThrowObject()
+        {
+            if (heldObject)
+            {
+                if (movement.FacingRight)
+                    heldObject.Force = 30f;
+                else
+                    heldObject.Force = -30f;
+                heldObject.Falling = true;
+                heldObject.transform.parent = null;
+                heldObject = null;
+                movement.MoveSpeed *= 2;
+            }
+        }
+
         /// <summary>
         /// Disables the player
         /// </summary>
         public void Disable()
         {
-            active = false;
+           active = false;
            gameObject.SetActive(false);
         }
 
@@ -62,12 +82,22 @@ namespace Assets.Scripts.Player
         /// </summary>
         public void Enable()
         {
-            active = true;
+           active = true;
            gameObject.SetActive(true);
 
         }
 
         #region C# Properties
+
+        public override bool Active
+        {
+            get { return active; }
+            set
+            {
+                active = value;
+                if (!active) ThrowObject();
+            }
+        }
 
         /// <summary>
         /// Life component of the player
