@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-//using Assets.Scripts.Level;
+using Assets.Scripts.Level;
 using Assets.Scripts.Player;
 //using Assets.Scripts.Timers;
 //using Assets.Scripts.Util;
@@ -20,6 +20,7 @@ namespace Assets.Scripts.Data
 
         // List of all the controllers of the players
         private List<Controller> controllers;
+        private List<RespawnNode> respawnNodes;
 
         [SerializeField]
         private GameObject playerPrefab;
@@ -45,8 +46,8 @@ namespace Assets.Scripts.Data
             {
                 Destroy(gameObject);
             }
-            //games = new List<Minigame>();
             controllers = new List<Controller>();
+            respawnNodes = new List<RespawnNode>();
         }
 
         void Start()
@@ -55,6 +56,13 @@ namespace Assets.Scripts.Data
             for (int i = 0; i < findControllers.Length; i++)
             {
                 controllers.Add(findControllers[i]);
+            }
+            currentGame = games[Random.Range(0, games.Count)];
+
+            RespawnNode[] findNodes = FindObjectsOfType<RespawnNode>();
+            for (int i = 0; i < findNodes.Length; i++)
+            {
+                respawnNodes.Add(findNodes[i]);
             }
         }
 
@@ -95,11 +103,12 @@ namespace Assets.Scripts.Data
         {
             // Find the dead player
             Controller deadPlayer = controllers.Find(x => x.ID.Equals(id));
+            RespawnNode playerNode = respawnNodes.Find(x => x.ID.Equals(id));
             if (deadPlayer != null)
             {
                 // Initialize the respawn timer
                 // Find an appropriate spawning pod (set to default for now)
-                deadPlayer.transform.position = Vector3.zero;
+                deadPlayer.transform.position = playerNode.transform.position;
                 // Let the player revive itself
                 deadPlayer.LifeComponent.Respawn();
             }
