@@ -22,17 +22,17 @@ namespace Assets.Scripts.Data
 
         //private List<Controller> controllers;
 
-        //public override void Init()
-        //{
+        public override void Init()
+        {
         //    controllers =  GameManager.instance.AllPlayers;
         //    for (int x = 0; x < FishPoolSize; x++)
         //        fish.Add(fishPrefab);
-        //}
+        }
 
-        //public override void Run()
-        //{
+        public override void Run()
+        {
         //   // throw new NotImplementedException();
-        //}
+        }
 
         //IEnumerator StartFishFall()
         //{

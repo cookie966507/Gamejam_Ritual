@@ -11,32 +11,40 @@ namespace Assets.Scripts.Player
     {
         void Update()
         {
-            float hor = InputManager.GetAxis("Horizontal_P" + (int)id, id);
-            float vert = InputManager.GetAxis("Vertical_P" + (int)id, id);
+            base.Update();
+            if (Active)
+            {
+                float hor = InputManager.GetAxis("Horizontal_P" + (int)id, id);
+                float vert = InputManager.GetAxis("Vertical_P" + (int)id, id);
 
-            if (hor > 0)
-            {
-                movement.MoveHorizontal(1, Mathf.Abs(hor));
-            }
-            else if (hor < 0)
-            {
-                movement.MoveHorizontal(-1, Mathf.Abs(hor));
-            }
-            if (vert > 0)
-            {
-                movement.MoveVertical(1, Mathf.Abs(vert));
-            }
-            else if (vert < 0)
-            {
-                movement.MoveVertical(-1, Mathf.Abs(vert));
-            }
+                if (hor > 0)
+                {
+                    movement.MoveHorizontal(1, Mathf.Abs(hor));
+                }
+                else if (hor < 0)
+                {
+                    movement.MoveHorizontal(-1, Mathf.Abs(hor));
+                }
+                if (vert > 0)
+                {
+                    movement.MoveVertical(1, Mathf.Abs(vert));
+                }
+                else if (vert < 0)
+                {
+                    movement.MoveVertical(-1, Mathf.Abs(vert));
+                }
 
-            if(InputManager.GetButtonDown("B_P" + (int)id, id))
-            {
-                movement.InitRoll();
-            }
+                if (InputManager.GetButtonDown("B_P" + (int)id, id))
+                {
+                    movement.InitRoll();
+                }
 
-            if (Input.GetKeyDown(KeyCode.K)) life.ModifyHealth(-100);
+                if(Input.GetKeyDown(KeyCode.Space))
+                {
+                    sprite.position = transform.position + new Vector3(0, 10, 0);
+                    falling = true;
+                }
+            }
         }
     }
 }
