@@ -66,7 +66,7 @@ namespace Assets.Scripts.Player
 
         void OnTriggerStay2D(Collider2D col)
         {
-            if (heldObject) return;
+            if (heldObject || movement.Rolling) return;
             if (InputManager.GetButtonDown("Y_P" + (int)id, id))
             {
                 heldObject = col.GetComponent<SpriteObject>();

@@ -47,7 +47,7 @@ namespace Assets.Scripts.Level
 
         protected void Fall()
         {
-            sprite.transform.Translate(-Vector2.up * 9.8f * Time.deltaTime, Space.World);
+            sprite.transform.Translate(-Vector2.up * 5f * Time.deltaTime, Space.World);
             force = Mathf.SmoothDamp(force, 0f, ref throwVel, 0.1f);
             transform.Translate(Vector2.right * force * Time.deltaTime, Space.World);
         }
