@@ -13,11 +13,12 @@ namespace Assets.Scripts.Player
         {
             float hor = InputManager.GetAxis("Horizontal_P" + (int)id, id);
             float vert = InputManager.GetAxis("Vertical_P" + (int)id, id);
+
             if (hor > 0)
             {
                 movement.MoveHorizontal(1, Mathf.Abs(hor));
             }
-            if (hor < 0)
+            else if (hor < 0)
             {
                 movement.MoveHorizontal(-1, Mathf.Abs(hor));
             }
@@ -25,9 +26,14 @@ namespace Assets.Scripts.Player
             {
                 movement.MoveVertical(1, Mathf.Abs(vert));
             }
-            if (vert < 0)
+            else if (vert < 0)
             {
                 movement.MoveVertical(-1, Mathf.Abs(vert));
+            }
+
+            if(InputManager.GetButtonDown("B_P" + (int)id, id))
+            {
+                movement.InitRoll();
             }
         }
     }
