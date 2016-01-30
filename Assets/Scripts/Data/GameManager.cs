@@ -56,6 +56,7 @@ namespace Assets.Scripts.Data
             {
                 controllers.Add(findControllers[i]);
             }
+            currentGame = games[Random.Range(0, games.Count)];
         }
 
         void Update()
