@@ -34,6 +34,8 @@ namespace Assets.Scripts.Data
         public const int MAX_SCORE = 100;
         private int numGames = 5;
 
+        public GameObject field;
+
         // Sets up singleton instance. Will remain if one does not already exist in scene
         void Awake()
         {
@@ -57,13 +59,15 @@ namespace Assets.Scripts.Data
             {
                 controllers.Add(findControllers[i]);
             }
-            currentGame = games[Random.Range(0, games.Count)];
 
             RespawnNode[] findNodes = FindObjectsOfType<RespawnNode>();
             for (int i = 0; i < findNodes.Length; i++)
             {
                 respawnNodes.Add(findNodes[i]);
             }
+
+            currentGame = games[Random.Range(0, games.Count)];
+            currentGame.Init();
         }
 
         void Update()
@@ -89,8 +93,8 @@ namespace Assets.Scripts.Data
             bool scoreReached = false;
             foreach(PlayerID id in winners)
             {
-                playerScores[(int)id] += MAX_SCORE / numGames;
-                if (playerScores[(int)id] >= MAX_SCORE) scoreReached = true;
+                playerScores[((int)id)-1] += MAX_SCORE / numGames;
+                if (playerScores[((int)id)-1] >= MAX_SCORE) scoreReached = true;
             }
             return scoreReached;
         }
@@ -103,7 +107,6 @@ namespace Assets.Scripts.Data
         {
             // Find the dead player
             Controller deadPlayer = controllers.Find(x => x.ID.Equals(id));
-            RespawnNode playerNode = respawnNodes.Find(x => x.ID.Equals(id));
             if (deadPlayer != null)
             {
                 // Initialize the respawn timer

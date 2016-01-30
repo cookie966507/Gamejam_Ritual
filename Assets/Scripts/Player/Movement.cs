@@ -97,6 +97,11 @@ namespace Assets.Scripts.Player
             set { moveSpeed = value; }
         }
 
+        public bool Rolling
+        {
+            get { return rolling; }
+        }
+
         public bool FacingRight
         {
 			get { return facingRight; }
