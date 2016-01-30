@@ -11,6 +11,7 @@ namespace Assets.Scripts.Player
         private float rollSpeed = 20f, rollSlerp = 20f, targetSlerp = 5f, slerpSpeed = 0.1f;
         private float rotationSpeed = 0.1f, rotationVel = 0f, targetZRotation = 360, currentZRotation = 0f;
         private float rollVel = 0f;
+        private int rollDir = 1;
 
         void OnDisable()
         {
@@ -29,7 +30,7 @@ namespace Assets.Scripts.Player
                 }
                 else
                 {
-                    Roll();
+                    Roll(rollDir);
                 }
             }
         }
@@ -63,20 +64,15 @@ namespace Assets.Scripts.Player
             controller.UpdateSortingLayer();
         }
 
-        public void InitRoll()
+        public void InitRoll(int dir)
         {
             rolling = true;
-            if (facingRight)
-                targetZRotation = -360f;
-            else
-                targetZRotation = 360f;
+            targetZRotation = -dir * 360;
+            rollDir = dir;
         }
-        private void Roll()
+        private void Roll(int dir)
         {
-            if(facingRight)
-                transform.Translate(Vector3.right * rollSlerp * Time.deltaTime, Space.World);
-            else
-                transform.Translate(Vector3.left * rollSlerp * Time.deltaTime, Space.World);
+            transform.Translate(dir * Vector3.right * rollSlerp * Time.deltaTime, Space.World);
 
             currentZRotation = Mathf.SmoothDamp(currentZRotation, targetZRotation, ref rotationVel, rotationSpeed);
             transform.rotation = Quaternion.Euler(0, 0, currentZRotation);

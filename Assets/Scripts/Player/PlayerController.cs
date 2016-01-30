@@ -43,12 +43,16 @@ namespace Assets.Scripts.Player
                     movement.MoveVertical(-1, Mathf.Abs(vert));
                 }
 
-                if (InputManager.GetButtonDown("B_P" + (int)id, id) && !heldObject)
+                if (InputManager.GetButtonDown("LB_P" + (int)id, id) && !heldObject)
                 {
-                    movement.InitRoll();
+                    movement.InitRoll(-1);
+                }
+                if (InputManager.GetButtonDown("RB_P" + (int)id, id) && !heldObject)
+                {
+                    movement.InitRoll(1);
                 }
 
-                if (InputManager.GetButtonDown("Y_P" + (int)id, id))
+                if (InputManager.GetAxis("RightTrigger_P" + (int)id, id) == 0)
                 {
                     if (pickedUpThisTurn)
                         pickedUpThisTurn = false;
@@ -67,10 +71,10 @@ namespace Assets.Scripts.Player
         void OnTriggerStay2D(Collider2D col)
         {
             if (heldObject || movement.Rolling) return;
-            if (InputManager.GetButtonDown("Y_P" + (int)id, id))
+            if (InputManager.GetAxis("RightTrigger_P" + (int)id, id) > 0)
             {
                 heldObject = col.GetComponent<SpriteObject>();
-                if (heldObject != null)
+                if (heldObject)
                 {
                     pickedUpThisTurn = true;
                     heldObject.Active = false;

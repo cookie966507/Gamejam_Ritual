@@ -181,6 +181,36 @@
       <axis>0</axis>
       <joystick>0</joystick>
     </AxisConfiguration>
+    <AxisConfiguration name="LB_P1">
+      <description />
+      <positive>Joystick1Button4</positive>
+      <altPositive>None</altPositive>
+      <negative>None</negative>
+      <altNegative>None</altNegative>
+      <deadZone>0</deadZone>
+      <gravity>0</gravity>
+      <sensitivity>0</sensitivity>
+      <snap>false</snap>
+      <invert>false</invert>
+      <type>Button</type>
+      <axis>0</axis>
+      <joystick>0</joystick>
+    </AxisConfiguration>
+    <AxisConfiguration name="RB_P1">
+      <description />
+      <positive>Joystick1Button5</positive>
+      <altPositive>None</altPositive>
+      <negative>None</negative>
+      <altNegative>None</altNegative>
+      <deadZone>0</deadZone>
+      <gravity>0</gravity>
+      <sensitivity>0</sensitivity>
+      <snap>false</snap>
+      <invert>false</invert>
+      <type>Button</type>
+      <axis>0</axis>
+      <joystick>0</joystick>
+    </AxisConfiguration>
     <AxisConfiguration name="DPADHorizontal_P1">
       <description />
       <positive>None</positive>
@@ -211,7 +241,7 @@
       <axis>7</axis>
       <joystick>0</joystick>
     </AxisConfiguration>
-    <AxisConfiguration name="RightTrigger">
+    <AxisConfiguration name="RightTrigger_P1">
       <description />
       <positive>None</positive>
       <altPositive>None</altPositive>
@@ -226,7 +256,7 @@
       <axis>9</axis>
       <joystick>0</joystick>
     </AxisConfiguration>
-    <AxisConfiguration name="LeftTrigger">
+    <AxisConfiguration name="LeftTrigger_P1">
       <description />
       <positive>None</positive>
       <altPositive>None</altPositive>
@@ -423,6 +453,36 @@
       <axis>0</axis>
       <joystick>0</joystick>
     </AxisConfiguration>
+    <AxisConfiguration name="LB_P1">
+      <description />
+      <positive>Joystick1Button14</positive>
+      <altPositive>None</altPositive>
+      <negative>None</negative>
+      <altNegative>None</altNegative>
+      <deadZone>0</deadZone>
+      <gravity>0</gravity>
+      <sensitivity>0</sensitivity>
+      <snap>false</snap>
+      <invert>false</invert>
+      <type>Button</type>
+      <axis>0</axis>
+      <joystick>0</joystick>
+    </AxisConfiguration>
+    <AxisConfiguration name="RB_P1">
+      <description />
+      <positive>Joystick1Button15</positive>
+      <altPositive>None</altPositive>
+      <negative>None</negative>
+      <altNegative>None</altNegative>
+      <deadZone>0</deadZone>
+      <gravity>0</gravity>
+      <sensitivity>0</sensitivity>
+      <snap>false</snap>
+      <invert>false</invert>
+      <type>Button</type>
+      <axis>0</axis>
+      <joystick>0</joystick>
+    </AxisConfiguration>
     <AxisConfiguration name="DPADLeft_P1">
       <description />
       <positive>Joystick1Button7</positive>
@@ -483,7 +543,7 @@
       <axis>0</axis>
       <joystick>0</joystick>
     </AxisConfiguration>
-    <AxisConfiguration name="RightTrigger">
+    <AxisConfiguration name="RightTrigger_P1">
       <description />
       <positive>None</positive>
       <altPositive>None</altPositive>
@@ -498,7 +558,7 @@
       <axis>5</axis>
       <joystick>0</joystick>
     </AxisConfiguration>
-    <AxisConfiguration name="LeftTrigger">
+    <AxisConfiguration name="LeftTrigger_P1">
       <description />
       <positive>None</positive>
       <altPositive>None</altPositive>
@@ -695,6 +755,36 @@
       <axis>0</axis>
       <joystick>0</joystick>
     </AxisConfiguration>
+    <AxisConfiguration name="LB_P1">
+      <description />
+      <positive>Joystick1Button4</positive>
+      <altPositive>None</altPositive>
+      <negative>None</negative>
+      <altNegative>None</altNegative>
+      <deadZone>0</deadZone>
+      <gravity>0</gravity>
+      <sensitivity>0</sensitivity>
+      <snap>false</snap>
+      <invert>false</invert>
+      <type>Button</type>
+      <axis>0</axis>
+      <joystick>0</joystick>
+    </AxisConfiguration>
+    <AxisConfiguration name="RB_P1">
+      <description />
+      <positive>Joystick1Button5</positive>
+      <altPositive>None</altPositive>
+      <negative>None</negative>
+      <altNegative>None</altNegative>
+      <deadZone>0</deadZone>
+      <gravity>0</gravity>
+      <sensitivity>0</sensitivity>
+      <snap>false</snap>
+      <invert>false</invert>
+      <type>Button</type>
+      <axis>0</axis>
+      <joystick>0</joystick>
+    </AxisConfiguration>
     <AxisConfiguration name="DPADHorizontal_P1">
       <description />
       <positive>None</positive>
@@ -725,7 +815,7 @@
       <axis>7</axis>
       <joystick>0</joystick>
     </AxisConfiguration>
-    <AxisConfiguration name="RightTrigger">
+    <AxisConfiguration name="RightTrigger_P1">
       <description />
       <positive>None</positive>
       <altPositive>None</altPositive>
@@ -740,7 +830,7 @@
       <axis>5</axis>
       <joystick>0</joystick>
     </AxisConfiguration>
-    <AxisConfiguration name="LeftTrigger">
+    <AxisConfiguration name="LeftTrigger_P1">
       <description />
       <positive>None</positive>
       <altPositive>None</altPositive>
