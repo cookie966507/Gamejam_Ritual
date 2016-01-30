@@ -1,0 +1,178 @@
+fileFormatVersion: 2
+guid: 658becbf9997d06409e7f736aec49442
+timeCreated: 1454176982
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: fish tuck_00000_0
+    21300002: fish tuck_00000_1
+    21300004: fish tuck_00000_2
+    21300006: fish tuck_00000_3
+    21300008: fish tuck_00000_4
+    21300010: fish tuck_00000_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: fish tuck_00000_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 103}
+        - {x: -40, y: -52}
+        - {x: -34, y: -99}
+        - {x: 30, y: -99}
+        - {x: 48, y: -75}
+        - {x: 48, y: 60}
+        - {x: 18, y: 103}
+    - name: fish tuck_00000_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 99}
+        - {x: -35, y: 94}
+        - {x: -35, y: -21}
+        - {x: -33, y: -34}
+        - {x: 4, y: -89}
+        - {x: 57, y: -89}
+        - {x: 57, y: 99}
+    - name: fish tuck_00000_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: -67}
+        - {x: 47, y: -67}
+        - {x: 70, y: -62}
+        - {x: 70, y: 25}
+        - {x: 41, y: 94}
+        - {x: -32, y: 94}
+        - {x: -32, y: -52}
+    - name: fish tuck_00000_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 91}
+        - {x: -32, y: 57}
+        - {x: -32, y: -6}
+        - {x: -25, y: -37}
+        - {x: 17, y: -53}
+        - {x: 57, y: -53}
+        - {x: 57, y: 48}
+        - {x: 45, y: 91}
+    - name: fish tuck_00000_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 32, y: 76}
+        - {x: 29, y: 73}
+        - {x: 23, y: 84}
+        - {x: 20, y: 85}
+        - {x: 11, y: 85}
+        - {x: -15, y: 77}
+        - {x: -33, y: 39}
+        - {x: -33, y: -19}
+        - {x: -24, y: -40}
+        - {x: 50, y: -40}
+        - {x: 50, y: 76}
+    - name: fish tuck_00000_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28, y: 85}
+        - {x: -33, y: 59}
+        - {x: -33, y: -26}
+        - {x: -18, y: -41}
+        - {x: 14, y: -49}
+        - {x: 39, y: -49}
+        - {x: 52, y: -35}
+        - {x: 52, y: 37}
+        - {x: 44, y: 85}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
