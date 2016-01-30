@@ -91,6 +91,12 @@ namespace Assets.Scripts.Player
             transform.rotation = Quaternion.Euler(0, 0, currentZRotation);
         }
 
+        public float MoveSpeed
+        {
+            get { return moveSpeed; }
+            set { moveSpeed = value; }
+        }
+
         public bool FacingRight
         {
 			get { return facingRight; }

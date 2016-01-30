@@ -7,9 +7,19 @@ namespace Assets.Scripts.Level
         protected float heightOffGround = 0f;
         protected bool falling = false;
         protected bool active = true;
+        protected float force = 0f;
+
+        private float throwVel = 0f;
 
         [SerializeField]
         protected Transform sprite;
+
+        void OnDisable()
+        {
+            sprite.transform.position = transform.position;
+            force = 0f;
+            falling = false;
+        }
 
         void Start()
         {
@@ -29,7 +39,7 @@ namespace Assets.Scripts.Level
                 active = false;
                 Fall();
             }
-            else if(falling && !active)
+            else if(falling && !active && heightOffGround <=0)
             {
                 HitGround();
             }
@@ -37,7 +47,9 @@ namespace Assets.Scripts.Level
 
         protected void Fall()
         {
-            sprite.transform.Translate(-Vector2.up * 9.8f * Time.deltaTime);
+            sprite.transform.Translate(-Vector2.up * 9.8f * Time.deltaTime, Space.World);
+            force = Mathf.SmoothDamp(force, 0f, ref throwVel, 0.1f);
+            transform.Translate(Vector2.right * force * Time.deltaTime, Space.World);
         }
 
         protected virtual void HitGround()
@@ -45,6 +57,7 @@ namespace Assets.Scripts.Level
             sprite.transform.position = transform.position;
             falling = false;
             active = true;
+            force = 0f;
         }
 
         public void UpdateSortingLayer()
@@ -53,7 +66,7 @@ namespace Assets.Scripts.Level
             GetComponent<SpriteRenderer>().sortingOrder = -(int)(transform.position.y * 100 + 1);
         }
 
-        public bool Active
+        public virtual bool Active
         {
             get { return active; }
             set { active = value; }
@@ -63,6 +76,17 @@ namespace Assets.Scripts.Level
         {
             get { return falling; }
             set { falling = value; }
+        }
+
+        public float Force
+        {
+            get { return force; }
+            set { force = value; }
+        }
+
+        public Transform Sprite
+        {
+            get { return sprite; }
         }
     } 
 }
