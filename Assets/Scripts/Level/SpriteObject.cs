@@ -14,6 +14,11 @@ namespace Assets.Scripts.Level
         [SerializeField]
         protected Transform sprite;
 
+        void OnEnable()
+        {
+            UpdateSortingLayer();
+        }
+
         void OnDisable()
         {
             sprite.transform.position = transform.position;
