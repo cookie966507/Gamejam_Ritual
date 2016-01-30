@@ -36,6 +36,7 @@ namespace Assets.Scripts.Player
 
         public void MoveHorizontal(int dir, float ratio = 1f)
         {
+            if (rolling) return;
             if (dir < 0)
             {
                 transform.Translate(Vector3.left * moveSpeed * Time.deltaTime * ratio, Space.World);
@@ -49,6 +50,7 @@ namespace Assets.Scripts.Player
         }
         public void MoveVertical(int dir, float ratio = 1f)
         {
+            if (rolling) return;
             if (dir < 0)
             {
                 transform.Translate(Vector3.down * moveSpeed * Time.deltaTime * ratio, Space.World);

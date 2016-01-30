@@ -35,6 +35,8 @@ namespace Assets.Scripts.Player
             {
                 movement.InitRoll();
             }
+
+            if (Input.GetKeyDown(KeyCode.K)) life.ModifyHealth(-100);
         }
     }
 }
