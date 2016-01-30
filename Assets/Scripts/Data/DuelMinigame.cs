@@ -8,12 +8,12 @@ namespace Assets.Scripts.Data
     {
         public override void Init()
         {
-            throw new NotImplementedException();
+            
         }
 
         public override void Run()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
