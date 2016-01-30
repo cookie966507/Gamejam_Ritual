@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TeamUtility.IO;
+using Assets.Scripts.Level;
 
 namespace Assets.Scripts.Player
 {
@@ -9,31 +10,79 @@ namespace Assets.Scripts.Player
     /// </summary>
     public class PlayerController : Controller
     {
-        void Update()
+        private bool pickedUpThisTurn;
+
+        new void Update()
         {
-            float hor = InputManager.GetAxis("Horizontal_P" + (int)id, id);
-            float vert = InputManager.GetAxis("Vertical_P" + (int)id, id);
+            base.Update();
+            if(heldObject != null)
+            {
+                heldObject.transform.position = transform.position + new Vector3(0, 0.1f, 0);
+                heldObject.Sprite.transform.position = holdPoint.position;
+                heldObject.UpdateSortingLayer();
+            }
+            if (Active)
+            {
+                float hor = InputManager.GetAxis("Horizontal_P" + (int)id, id);
+                float vert = InputManager.GetAxis("Vertical_P" + (int)id, id);
 
-            if (hor > 0)
-            {
-                movement.MoveHorizontal(1, Mathf.Abs(hor));
-            }
-            else if (hor < 0)
-            {
-                movement.MoveHorizontal(-1, Mathf.Abs(hor));
-            }
-            if (vert > 0)
-            {
-                movement.MoveVertical(1, Mathf.Abs(vert));
-            }
-            else if (vert < 0)
-            {
-                movement.MoveVertical(-1, Mathf.Abs(vert));
-            }
+                if (hor > 0)
+                {
+                    movement.MoveHorizontal(1, Mathf.Abs(hor));
+                }
+                else if (hor < 0)
+                {
+                    movement.MoveHorizontal(-1, Mathf.Abs(hor));
+                }
+                if (vert > 0)
+                {
+                    movement.MoveVertical(1, Mathf.Abs(vert));
+                }
+                else if (vert < 0)
+                {
+                    movement.MoveVertical(-1, Mathf.Abs(vert));
+                }
 
-            if(InputManager.GetButtonDown("B_P" + (int)id, id))
+                if (InputManager.GetButtonDown("LB_P" + (int)id, id) && !heldObject)
+                {
+                    movement.InitRoll(-1);
+                }
+                if (InputManager.GetButtonDown("RB_P" + (int)id, id) && !heldObject)
+                {
+                    movement.InitRoll(1);
+                }
+
+                if (InputManager.GetAxis("RightTrigger_P" + (int)id, id) == 0)
+                {
+                    if (pickedUpThisTurn)
+                        pickedUpThisTurn = false;
+                    else
+                        ThrowObject();
+                }
+
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    sprite.position = transform.position + new Vector3(0, 10, 0);
+                    falling = true;
+                }
+            }
+        }
+
+        void OnTriggerStay2D(Collider2D col)
+        {
+            if (heldObject || movement.Rolling) return;
+            if (InputManager.GetAxis("RightTrigger_P" + (int)id, id) > 0)
             {
-                movement.InitRoll();
+                heldObject = col.GetComponent<SpriteObject>();
+                if (heldObject)
+                {
+                    pickedUpThisTurn = true;
+                    heldObject.Active = false;
+                    heldObject.Falling = false;
+                    heldObject.transform.parent = transform;
+                    heldObject.Sprite.position = holdPoint.position;
+                    movement.MoveSpeed /= 2;
+                }
             }
         }
     }

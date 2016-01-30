@@ -30,6 +30,7 @@ namespace Assets.Scripts.Player
         // Handles when players die
         private void Die()
         {
+            controller.ThrowObject();
             controller.Disable();
             GameManager.instance.Respawn(controller.ID);
         }
