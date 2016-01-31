@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using TeamUtility.IO;
+using Assets.Scripts.Level;
+using System;
 
 namespace Assets.Scripts.Player
 {
@@ -9,7 +11,7 @@ namespace Assets.Scripts.Player
     /// such as movement, data , etc
     /// Will also allow the different components to talk to one another
     /// </summary>
-    public class Controller : MonoBehaviour
+    public class Controller : SpriteObject
     {
         // ID for identifying which player is accepting input
         [SerializeField]
@@ -19,6 +21,13 @@ namespace Assets.Scripts.Player
         protected Movement movement;
         protected Life life;
 
+        [SerializeField]
+        protected Transform holdPoint;
+
+        protected SpriteObject heldObject;
+
+        protected Animator anim;
+
         void Awake()
         {
             // Init all componenets
@@ -27,7 +36,9 @@ namespace Assets.Scripts.Player
 
         void Start()
         {
-
+            base.Init();
+            anim = GetComponentInChildren<Animator>();
+            anim.SetBool("Club", true);
         }
 
         /// <summary>
@@ -43,6 +54,23 @@ namespace Assets.Scripts.Player
             life.Controller = this;
             movement.Controller = this;
 
+            active = true;
+        }
+
+        public void ThrowObject()
+        {
+            if (heldObject)
+            {
+                if (movement.FacingRight)
+                    heldObject.Force = 30f;
+                else
+                    heldObject.Force = -30f;
+                heldObject.Falling = true;
+                heldObject.transform.parent = null;
+                heldObject = null;
+                movement.MoveSpeed *= 2;
+                anim.SetBool("Carry", false);
+            }
         }
 
         /// <summary>
@@ -50,6 +78,7 @@ namespace Assets.Scripts.Player
         /// </summary>
         public void Disable()
         {
+           active = false;
            gameObject.SetActive(false);
         }
 
@@ -58,12 +87,23 @@ namespace Assets.Scripts.Player
         /// </summary>
         public void Enable()
         {
+           active = true;
            gameObject.SetActive(true);
 
         }
 
         #region C# Properties
-       
+
+        public override bool Active
+        {
+            get { return active; }
+            set
+            {
+                active = value;
+                if (!active) ThrowObject();
+            }
+        }
+
         /// <summary>
         /// Life component of the player
         /// </summary>
@@ -86,6 +126,11 @@ namespace Assets.Scripts.Player
         {
             get { return id; }
             set { id = value; }
+        }
+
+        public Animator Anim
+        {
+            get { return anim; }
         }
         #endregion
     }

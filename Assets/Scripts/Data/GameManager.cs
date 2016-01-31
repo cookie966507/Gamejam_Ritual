@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Assets.Scripts.Level;
 using Assets.Scripts.Player;
-//using Assets.Scripts.Timers;
+using Assets.Scripts.Timers;
 //using Assets.Scripts.Util;
 using TeamUtility.IO;
 
@@ -34,6 +34,8 @@ namespace Assets.Scripts.Data
         public const int MAX_SCORE = 100;
         private int numGames = 5;
 
+        public GameObject field;
+
         // Sets up singleton instance. Will remain if one does not already exist in scene
         void Awake()
         {
@@ -57,13 +59,15 @@ namespace Assets.Scripts.Data
             {
                 controllers.Add(findControllers[i]);
             }
-            currentGame = games[Random.Range(0, games.Count)];
 
             RespawnNode[] findNodes = FindObjectsOfType<RespawnNode>();
             for (int i = 0; i < findNodes.Length; i++)
             {
                 respawnNodes.Add(findNodes[i]);
             }
+
+            currentGame = games[Random.Range(0, games.Count)];
+            currentGame.Init();
         }
 
         void Update()
@@ -89,8 +93,8 @@ namespace Assets.Scripts.Data
             bool scoreReached = false;
             foreach(PlayerID id in winners)
             {
-                playerScores[(int)id] += MAX_SCORE / numGames;
-                if (playerScores[(int)id] >= MAX_SCORE) scoreReached = true;
+                playerScores[((int)id)-1] += MAX_SCORE / numGames;
+                if (playerScores[((int)id)-1] >= MAX_SCORE) scoreReached = true;
             }
             return scoreReached;
         }
@@ -103,11 +107,24 @@ namespace Assets.Scripts.Data
         {
             // Find the dead player
             Controller deadPlayer = controllers.Find(x => x.ID.Equals(id));
-            RespawnNode playerNode = respawnNodes.Find(x => x.ID.Equals(id));
             if (deadPlayer != null)
             {
                 // Initialize the respawn timer
-                // Find an appropriate spawning pod (set to default for now)
+                // Initialize the respawn timer
+                CountdownTimer t = gameObject.AddComponent<CountdownTimer>();
+                t.Initialize(3f, deadPlayer.ID.ToString());
+                t.TimeOut += new CountdownTimer.TimerEvent(ResawnHelper);
+
+            }
+        }
+
+        private void ResawnHelper(CountdownTimer t)
+        {
+            // Find the dead player again
+            Controller deadPlayer = controllers.Find(x => x.ID.Equals(System.Enum.Parse(typeof(PlayerID), t.ID)));
+            RespawnNode playerNode = respawnNodes.Find(x => x.ID.Equals(System.Enum.Parse(typeof(PlayerID), t.ID)));
+            if (deadPlayer != null)
+            {
                 deadPlayer.transform.position = playerNode.transform.position;
                 // Let the player revive itself
                 deadPlayer.LifeComponent.Respawn();
@@ -130,8 +147,8 @@ namespace Assets.Scripts.Data
             controllers.Remove(removePlayer);
         }
 
-        #region C# Properties
+#region C# Properties
 
-        #endregion
+#endregion
     }
 }
