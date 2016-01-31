@@ -26,6 +26,8 @@ namespace Assets.Scripts.Player
 
         protected SpriteObject heldObject;
 
+        protected Animator anim;
+
         void Awake()
         {
             // Init all componenets
@@ -35,6 +37,7 @@ namespace Assets.Scripts.Player
         void Start()
         {
             base.Init();
+            anim = GetComponentInChildren<Animator>();
         }
 
         /// <summary>
@@ -65,6 +68,7 @@ namespace Assets.Scripts.Player
                 heldObject.transform.parent = null;
                 heldObject = null;
                 movement.MoveSpeed *= 2;
+                anim.SetBool("Carry", false);
             }
         }
 
@@ -121,6 +125,11 @@ namespace Assets.Scripts.Player
         {
             get { return id; }
             set { id = value; }
+        }
+
+        public Animator Anim
+        {
+            get { return anim; }
         }
         #endregion
     }

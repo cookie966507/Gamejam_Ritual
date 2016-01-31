@@ -75,7 +75,7 @@ namespace Assets.Scripts.Player
             transform.Translate(dir * Vector3.right * rollSlerp * Time.deltaTime, Space.World);
 
             currentZRotation = Mathf.SmoothDamp(currentZRotation, targetZRotation, ref rotationVel, rotationSpeed);
-            transform.rotation = Quaternion.Euler(0, 0, currentZRotation);
+            controller.Sprite.transform.rotation = Quaternion.Euler(0, 0, currentZRotation);
         }
 
         public void Reset()
@@ -84,7 +84,9 @@ namespace Assets.Scripts.Player
             rolling = false;
             rollSlerp = rollSpeed;
             currentZRotation = 0f;
-            transform.rotation = Quaternion.Euler(0, 0, currentZRotation);
+            controller.Sprite.transform.rotation = Quaternion.Euler(0, 0, currentZRotation);
+            controller.Anim.SetBool("Rolling", false);
+            controller.Anim.SetBool("Carry", false);
         }
 
         public float MoveSpeed

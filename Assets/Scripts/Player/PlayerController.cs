@@ -20,6 +20,7 @@ namespace Assets.Scripts.Player
                 heldObject.transform.position = transform.position + new Vector3(0, 0.1f, 0);
                 heldObject.Sprite.transform.position = holdPoint.position;
                 heldObject.UpdateSortingLayer();
+                anim.SetBool("Carry", true);
             }
             if (Active)
             {
@@ -29,27 +30,37 @@ namespace Assets.Scripts.Player
                 if (hor > 0)
                 {
                     movement.MoveHorizontal(1, Mathf.Abs(hor));
+                    anim.SetFloat("Speed", 1f);
+                    sprite.GetComponent<SpriteRenderer>().flipX = false;
                 }
                 else if (hor < 0)
                 {
                     movement.MoveHorizontal(-1, Mathf.Abs(hor));
+                    anim.SetFloat("Speed", 1f);
+                    sprite.GetComponent<SpriteRenderer>().flipX = true;
                 }
                 if (vert > 0)
                 {
                     movement.MoveVertical(1, Mathf.Abs(vert));
+                    anim.SetFloat("Speed", 1f);
                 }
                 else if (vert < 0)
                 {
                     movement.MoveVertical(-1, Mathf.Abs(vert));
+                    anim.SetFloat("Speed", 1f);
                 }
+
+                if (hor == 0 && vert == 0) anim.SetFloat("Speed", 0);
 
                 if (InputManager.GetButtonDown("LB_P" + (int)id, id) && !heldObject)
                 {
                     movement.InitRoll(-1);
+                    anim.SetBool("Rolling", true);
                 }
                 if (InputManager.GetButtonDown("RB_P" + (int)id, id) && !heldObject)
                 {
                     movement.InitRoll(1);
+                    anim.SetBool("Rolling", true);
                 }
 
                 if (InputManager.GetAxis("RightTrigger_P" + (int)id, id) == 0)

@@ -1,0 +1,184 @@
+fileFormatVersion: 2
+guid: a5623cc719950f548a7a6f74cb168632
+timeCreated: 1454177293
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: eagle idle club_00000_0
+    21300002: eagle idle club_00000_1
+    21300004: eagle idle club_00000_2
+    21300006: eagle idle club_00000_3
+    21300008: eagle idle club_00000_4
+    21300010: eagle idle club_00000_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: eagle idle club_00000_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 69, y: 70}
+        - {x: 61, y: 74}
+        - {x: 33, y: 101}
+        - {x: 15, y: 106}
+        - {x: -48, y: 106}
+        - {x: -62, y: 82}
+        - {x: -62, y: 28}
+        - {x: -21, y: -99}
+        - {x: 18, y: -99}
+        - {x: 29, y: -95}
+        - {x: 68, y: -4}
+        - {x: 69, y: 12}
+    - name: eagle idle club_00000_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -51, y: 105}
+        - {x: -62, y: 95}
+        - {x: -62, y: 3}
+        - {x: -28, y: -99}
+        - {x: 43, y: -99}
+        - {x: 69, y: -72}
+        - {x: 69, y: 105}
+    - name: eagle idle club_00000_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -52, y: 104}
+        - {x: -62, y: 102}
+        - {x: -62, y: -24}
+        - {x: -41, y: -99}
+        - {x: 46, y: -99}
+        - {x: 69, y: -8}
+        - {x: 69, y: 104}
+    - name: eagle idle club_00000_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41, y: 103}
+        - {x: -60, y: 77}
+        - {x: -62, y: 75}
+        - {x: -62, y: 38}
+        - {x: -53, y: 16}
+        - {x: -38, y: 21}
+        - {x: -35, y: 23}
+        - {x: -36, y: 22}
+        - {x: -40, y: 17}
+        - {x: -43, y: -16}
+        - {x: -24, y: -97}
+        - {x: -16, y: -99}
+        - {x: 27, y: -99}
+        - {x: 69, y: -5}
+        - {x: 69, y: 103}
+    - name: eagle idle club_00000_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -52, y: 104}
+        - {x: -62, y: 102}
+        - {x: -62, y: -24}
+        - {x: -41, y: -99}
+        - {x: 46, y: -99}
+        - {x: 69, y: -8}
+        - {x: 69, y: 104}
+    - name: eagle idle club_00000_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -51, y: 105}
+        - {x: -62, y: 95}
+        - {x: -62, y: 3}
+        - {x: -28, y: -99}
+        - {x: 43, y: -99}
+        - {x: 69, y: -72}
+        - {x: 69, y: 105}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
