@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 475316}
   - 61: {fileID: 6145382}
+  - 114: {fileID: 11432744}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Hitbox
@@ -193,6 +194,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42411871534f98b4789ff3050518ce9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11432744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b86793b1c267f174fbdd10cfd850f822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11443676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -218,6 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a42bc409bcfe7c342b47adecd66b371c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitEffect: {fileID: 199610, guid: b1fb58d52801563499acd2dc2b9894bc, type: 2}
 --- !u!212 &21263342
 SpriteRenderer:
   m_ObjectHideFlags: 1
