@@ -1,0 +1,432 @@
+fileFormatVersion: 2
+guid: cc40705cb09da4ed5bcb27e896e18e65
+timeCreated: 1454210648
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: big_fire_sprites_00000_0
+    21300002: big_fire_sprites_00000_1
+    21300004: big_fire_sprites_00000_2
+    21300006: big_fire_sprites_00000_3
+    21300008: big_fire_sprites_00000_4
+    21300010: big_fire_sprites_00000_5
+    21300012: big_fire_sprites_00000_6
+    21300014: big_fire_sprites_00000_7
+    21300016: big_fire_sprites_00000_8
+    21300018: big_fire_sprites_00000_9
+    21300020: big_fire_sprites_00000_10
+    21300022: big_fire_sprites_00000_11
+    21300024: big_fire_sprites_00000_12
+    21300026: big_fire_sprites_00000_13
+    21300028: big_fire_sprites_00000_14
+    21300030: big_fire_sprites_00000_15
+    21300032: big_fire_sprites_00000_16
+    21300034: big_fire_sprites_00000_17
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: big_fire_sprites_00000_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25, y: 45}
+        - {x: 18, y: 52}
+        - {x: -35, y: 52}
+        - {x: -56, y: 24}
+        - {x: -56, y: -46}
+        - {x: -39, y: -57}
+        - {x: 43, y: -57}
+        - {x: 43, y: -7}
+        - {x: 41, y: 1}
+    - name: big_fire_sprites_00000_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 33.27778, y: 52}
+        - {x: -10.722221, y: 52}
+        - {x: -54.72222, y: 29}
+        - {x: -54.72222, y: -18}
+        - {x: -32.72222, y: -57}
+        - {x: 37.27778, y: -57}
+        - {x: 43.27778, y: -49}
+        - {x: 43.27778, y: 16}
+        - {x: 38.27778, y: 48}
+    - name: big_fire_sprites_00000_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24.944443, y: 52}
+        - {x: -55.944443, y: 35}
+        - {x: -55.944443, y: -20}
+        - {x: -37.944443, y: -57}
+        - {x: 39.055557, y: -57}
+        - {x: 43.055557, y: -41}
+        - {x: 43.055557, y: 4}
+        - {x: 24.055557, y: 52}
+    - name: big_fire_sprites_00000_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.166656, y: 52}
+        - {x: -56.166656, y: 38}
+        - {x: -56.166656, y: -25}
+        - {x: -34.166656, y: -57}
+        - {x: 37.833344, y: -57}
+        - {x: 42.833344, y: -41}
+        - {x: 42.833344, y: 32}
+        - {x: 37.833344, y: 52}
+    - name: big_fire_sprites_00000_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18.111115, y: 52}
+        - {x: -23.888885, y: 52}
+        - {x: -55.888885, y: 33}
+        - {x: -55.888885, y: -51}
+        - {x: -37.888885, y: -57}
+        - {x: 36.111115, y: -57}
+        - {x: 43.111115, y: -48}
+        - {x: 43.111115, y: -8}
+        - {x: 32.111115, y: 46}
+    - name: big_fire_sprites_00000_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12.611084, y: 52}
+        - {x: -54.611084, y: 23}
+        - {x: -54.611084, y: -25}
+        - {x: -37.611084, y: -57}
+        - {x: 42.388916, y: -57}
+        - {x: 43.388916, y: -56}
+        - {x: 43.388916, y: 8}
+        - {x: 31.388916, y: 52}
+    - name: big_fire_sprites_00000_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35.833313, y: 53}
+        - {x: -54.833313, y: 23}
+        - {x: -54.833313, y: -31}
+        - {x: -51.833313, y: -42}
+        - {x: -32.833313, y: -57}
+        - {x: 43.166687, y: -57}
+        - {x: 43.166687, y: 53}
+    - name: big_fire_sprites_00000_7
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -34.055542, y: 53}
+        - {x: -56.055542, y: 21}
+        - {x: -56.055542, y: -35}
+        - {x: -31.055542, y: -57}
+        - {x: 35.944458, y: -57}
+        - {x: 42.944458, y: -51}
+        - {x: 42.944458, y: 7}
+        - {x: 30.944458, y: 53}
+    - name: big_fire_sprites_00000_8
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 33.22223, y: 53}
+        - {x: -37.77777, y: 53}
+        - {x: -54.77777, y: 3}
+        - {x: -54.77777, y: -44}
+        - {x: -36.77777, y: -57}
+        - {x: 36.22223, y: -57}
+        - {x: 37.22223, y: -49}
+        - {x: 37.22223, y: -24}
+        - {x: 35.22223, y: 52}
+    - name: big_fire_sprites_00000_9
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30, y: 53}
+        - {x: -41, y: 48}
+        - {x: -55, y: -2}
+        - {x: -55, y: -48}
+        - {x: -37, y: -57}
+        - {x: 36, y: -57}
+        - {x: 36, y: 2}
+        - {x: 23, y: 53}
+    - name: big_fire_sprites_00000_10
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 37.277832, y: -27}
+        - {x: 43.277832, y: -16}
+        - {x: 43.277832, y: 8}
+        - {x: 27.277832, y: 41}
+        - {x: 19.277832, y: 53}
+        - {x: -37.722168, y: 53}
+        - {x: -53.722168, y: 4}
+        - {x: -53.722168, y: -34}
+        - {x: -48.722168, y: -42}
+        - {x: -43.722168, y: -44}
+        - {x: -29.722168, y: -57}
+        - {x: 36.277832, y: -57}
+        - {x: 37.277832, y: -55}
+    - name: big_fire_sprites_00000_11
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10.055542, y: 53}
+        - {x: -44.944458, y: 53}
+        - {x: -53.944458, y: 11}
+        - {x: -53.944458, y: -46}
+        - {x: -33.944458, y: -57}
+        - {x: 36.055542, y: -57}
+        - {x: 43.055542, y: -33}
+        - {x: 43.055542, y: 10}
+        - {x: 29.055542, y: 45}
+    - name: big_fire_sprites_00000_12
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9.833374, y: 53}
+        - {x: -29.166626, y: 53}
+        - {x: -39.166626, y: 51}
+        - {x: -54.166626, y: 6}
+        - {x: -54.166626, y: -39}
+        - {x: -36.166626, y: -57}
+        - {x: 37.833374, y: -57}
+        - {x: 41.833374, y: -38}
+        - {x: 41.833374, y: 18}
+        - {x: 40.833374, y: 22}
+    - name: big_fire_sprites_00000_13
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32.888916, y: 53}
+        - {x: -41.888916, y: 52}
+        - {x: -53.888916, y: -16}
+        - {x: -54.888916, y: -20}
+        - {x: -54.888916, y: -36}
+        - {x: -53.888916, y: -40}
+        - {x: -30.888916, y: -57}
+        - {x: 36.111084, y: -57}
+        - {x: 42.111084, y: -25}
+        - {x: 42.111084, y: 16}
+        - {x: 13.111084, y: 53}
+    - name: big_fire_sprites_00000_14
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22.388916, y: 43}
+        - {x: 9.388916, y: 53}
+        - {x: -35.611084, y: 53}
+        - {x: -47.611084, y: 11}
+        - {x: -47.611084, y: -47}
+        - {x: -37.611084, y: -57}
+        - {x: 38.388916, y: -57}
+        - {x: 43.388916, y: -33}
+        - {x: 43.388916, y: 7}
+        - {x: 40.388916, y: 19}
+    - name: big_fire_sprites_00000_15
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -43.833374, y: 53}
+        - {x: -43.833374, y: -56}
+        - {x: -34.833374, y: -57}
+        - {x: 40.166626, y: -57}
+        - {x: 43.166626, y: -39}
+        - {x: 43.166626, y: 23}
+        - {x: 14.166626, y: 53}
+    - name: big_fire_sprites_00000_16
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44.055542, y: 53}
+        - {x: -44.055542, y: -49}
+        - {x: -40.055542, y: -57}
+        - {x: 36.944458, y: -57}
+        - {x: 42.944458, y: -42}
+        - {x: 42.944458, y: 28}
+        - {x: 33.944458, y: 53}
+    - name: big_fire_sprites_00000_17
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31.77771, y: 53}
+        - {x: -55.77771, y: 35}
+        - {x: -55.77771, y: -46}
+        - {x: -51.77771, y: -55}
+        - {x: -43.77771, y: -57}
+        - {x: 37.22229, y: -57}
+        - {x: 42.22229, y: -25}
+        - {x: 42.22229, y: 18}
+        - {x: 23.22229, y: 53}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
