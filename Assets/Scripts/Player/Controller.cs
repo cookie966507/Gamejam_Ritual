@@ -38,7 +38,6 @@ namespace Assets.Scripts.Player
         {
             base.Init();
             anim = GetComponentInChildren<Animator>();
-            anim.SetBool("Club", true);
         }
 
         /// <summary>
@@ -89,7 +88,7 @@ namespace Assets.Scripts.Player
         {
            active = true;
            gameObject.SetActive(true);
-
+           anim.SetBool("Club", movement.MeleeEnabled);
         }
 
         #region C# Properties

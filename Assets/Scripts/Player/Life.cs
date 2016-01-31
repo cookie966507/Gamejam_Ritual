@@ -17,22 +17,32 @@ namespace Assets.Scripts.Player
 
         private float health = MAX_HEALTH;
 
+        [SerializeField]
+        private GameObject hitEffect;
+
         /// <summary>
         /// Modifies a player's heath
         /// </summary>
         /// <param name="delta">The amound to change (should be negative for damage)</param>
-        public void ModifyHealth(float delta)
+        public void ModifyHealth(float delta, bool effects = false)
         {
             health = Mathf.Clamp((health + delta), 0, MAX_HEALTH);
             if (health <= 0) Die();
+
+            if (effects) Instantiate(hitEffect, transform.position + Vector3.up, Quaternion.identity);
         }
 
         // Handles when players die
-        private void Die()
+        public void Deactivate()
         {
             controller.ThrowObject();
             controller.Disable();
             GameManager.instance.Respawn(controller.ID);
+        }
+
+        private void Die()
+        {
+
         }
 
         /// <summary>

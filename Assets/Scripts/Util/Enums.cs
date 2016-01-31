@@ -5,7 +5,8 @@
     /// </summary>
     public static class Enums
     {
-        public enum RepetitionTimerSettings { Limited, Unlimited };
-        public enum MenuDirections { Up, Down, Left, Right}
+        public enum RepetitionTimerSettings { Limited, Unlimited }
+        public enum MenuDirections { Up, Down, Left, Right }
+        public enum Characters { Zolin, Opochtli, Yaotl, Coatl }
     }
 }
