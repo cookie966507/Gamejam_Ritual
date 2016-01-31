@@ -40,6 +40,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 406348}
+  - 114: {fileID: 11458808}
   m_Layer: 0
   m_Name: Crocodile
   m_TagString: Untagged
@@ -346,6 +347,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 406348}
   m_RootOrder: 8
+--- !u!114 &11458808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2d1102f449f4df88b064f8f0de9869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.7
+  minLookForNewPlayer: 2
+  maxLookForNewPlayer: 4
+  flyAwayForceX: 200
+  flyAwayForceY: 0
+  players: []
+  winners: 
+  losers: 
 --- !u!212 &21203460
 SpriteRenderer:
   m_ObjectHideFlags: 1

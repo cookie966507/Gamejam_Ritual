@@ -38,7 +38,7 @@ namespace Assets.Scripts.Data
 
         public const int MAX_SCORE = 100;
         private int numGames = 5;
-        private int pointStep = 100;
+        private int pointStep = 20;
 		private bool transitionStarted = false;
 		private bool scoreAdded = false;
 		private float demandingTimer = 1f, transitionTimer2 = 0f;
@@ -53,6 +53,8 @@ namespace Assets.Scripts.Data
 		private bool gameWon;
 		private float winTimer;
 		private GameObject winningCharacterSprite;
+
+		private float veryFirstTimer = 4f;
 		
 
         private Dictionary<Enums.Characters, PlayerID> characterToPlayer;
@@ -116,19 +118,12 @@ namespace Assets.Scripts.Data
                 controllers[i].transform.position = playerNode.transform.position;
             }
                 
-
-
-            currentGame.Init();
+			currentGame.Init();
+			veryFirstTimer = 4f;
 			Camera.main.GetComponent<Animator>().SetTrigger("GodDemands");
 			dialogHolder.GetComponent<SpriteRenderer>().sprite = currentGame.instructions;
 
 			winningCharacterSprite = GameObject.Find("WinningCharacterSprite");
-
-			for(int i = 0; i < players.Length; i++) {
-				Debug.Log(players[i].name);
-				Debug.Log(players[i].GetComponent<Controller>().ID);
-				Debug.Log(players.Length + " " + controllers.Count);
-			}
 
         }
 
@@ -161,8 +156,10 @@ namespace Assets.Scripts.Data
             {
 				if (!currentGame.finished && !transitionStarted)
                 {
-					Debug.Log(currentGame.name + " is running");
-                    currentGame.Run();
+					veryFirstTimer -= Time.deltaTime;
+					if(veryFirstTimer <= 0) {
+                    	currentGame.Run();
+					}
                 }
                 else
                 {
@@ -261,6 +258,7 @@ namespace Assets.Scripts.Data
                 deadPlayer.transform.position = playerNode.transform.position;
                 // Let the player revive itself
                 if (currentGame.GetType().Equals(typeof(MeleeMinigame))) deadPlayer.LifeComponent.Respawn(false);
+				else if (currentGame.GetType().Equals(typeof(CaymanGame))) deadPlayer.LifeComponent.Respawn(false);
                 else deadPlayer.LifeComponent.Respawn();
             }
         }
