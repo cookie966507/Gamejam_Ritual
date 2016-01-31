@@ -63,7 +63,7 @@ namespace Assets.Scripts.Player
                     anim.SetBool("Rolling", true);
                 }
 
-                if (InputManager.GetAxis("RightTrigger_P" + (int)id, id) == 0)
+                if (InputManager.GetAxis("RightTrigger_P" + (int)id, id) <= 0)
                 {
                     if (pickedUpThisTurn)
                         pickedUpThisTurn = false;

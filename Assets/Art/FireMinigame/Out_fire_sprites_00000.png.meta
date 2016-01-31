@@ -1,0 +1,410 @@
+fileFormatVersion: 2
+guid: 17b4b3269afb04a41aa82f5b706d5cfd
+timeCreated: 1454210673
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Out_fire_sprites_00000_0
+    21300002: Out_fire_sprites_00000_1
+    21300004: Out_fire_sprites_00000_2
+    21300006: Out_fire_sprites_00000_3
+    21300008: Out_fire_sprites_00000_4
+    21300010: Out_fire_sprites_00000_5
+    21300012: Out_fire_sprites_00000_6
+    21300014: Out_fire_sprites_00000_7
+    21300016: Out_fire_sprites_00000_8
+    21300018: Out_fire_sprites_00000_9
+    21300020: Out_fire_sprites_00000_10
+    21300022: Out_fire_sprites_00000_11
+    21300024: Out_fire_sprites_00000_12
+    21300026: Out_fire_sprites_00000_13
+    21300028: Out_fire_sprites_00000_14
+    21300030: Out_fire_sprites_00000_15
+    21300032: Out_fire_sprites_00000_16
+    21300034: Out_fire_sprites_00000_17
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Out_fire_sprites_00000_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 3}
+        - {x: -12, y: 3}
+        - {x: -30, y: -17}
+        - {x: -30, y: -49}
+        - {x: -27, y: -57}
+        - {x: 30, y: -57}
+        - {x: 30, y: -21}
+        - {x: 3, y: -1}
+    - name: Out_fire_sprites_00000_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3.7222214, y: 23}
+        - {x: -10.722221, y: 23}
+        - {x: -28.722221, y: -26}
+        - {x: -28.722221, y: -45}
+        - {x: -21.722221, y: -57}
+        - {x: 30.277779, y: -57}
+        - {x: 30.277779, y: -16}
+        - {x: -2.7222214, y: 22}
+    - name: Out_fire_sprites_00000_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3.0555573, y: 26}
+        - {x: -17.944443, y: 26}
+        - {x: -28.944443, y: -23}
+        - {x: -28.944443, y: -57}
+        - {x: 30.055557, y: -57}
+        - {x: 30.055557, y: -25}
+        - {x: 18.055557, y: 7}
+    - name: Out_fire_sprites_00000_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12.1666565, y: 26}
+        - {x: -29.166656, y: -12}
+        - {x: -29.166656, y: -45}
+        - {x: -24.166656, y: -57}
+        - {x: 29.833344, y: -57}
+        - {x: 29.833344, y: -26}
+        - {x: 0.8333435, y: 26}
+    - name: Out_fire_sprites_00000_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22.888885, y: 26}
+        - {x: -29.888885, y: -9}
+        - {x: -29.888885, y: -57}
+        - {x: 30.111115, y: -57}
+        - {x: 30.111115, y: -20}
+        - {x: 9.1111145, y: 26}
+    - name: Out_fire_sprites_00000_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.611084, y: 26}
+        - {x: -28.611084, y: 4}
+        - {x: -28.611084, y: -57}
+        - {x: 31.388916, y: -57}
+        - {x: 31.388916, y: -13}
+        - {x: 5.388916, y: 26}
+    - name: Out_fire_sprites_00000_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1.166687, y: 26}
+        - {x: -20.833313, y: 26}
+        - {x: -20.833313, y: 25}
+        - {x: -28.833313, y: 4}
+        - {x: -28.833313, y: -52}
+        - {x: -22.833313, y: -57}
+        - {x: 30.166687, y: -57}
+        - {x: 30.166687, y: -13}
+        - {x: 24.166687, y: 0}
+    - name: Out_fire_sprites_00000_7
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.055542, y: 26}
+        - {x: -29.055542, y: -2}
+        - {x: -29.055542, y: -57}
+        - {x: 29.944458, y: -57}
+        - {x: 29.944458, y: -3}
+        - {x: 2.944458, y: 26}
+    - name: Out_fire_sprites_00000_8
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3.222229, y: 24}
+        - {x: 1.222229, y: 26}
+        - {x: -12.777771, y: 26}
+        - {x: -29.777771, y: -10}
+        - {x: -29.777771, y: -47}
+        - {x: -22.777771, y: -57}
+        - {x: 30.222229, y: -57}
+        - {x: 30.222229, y: -27}
+        - {x: 25.222229, y: -19}
+    - name: Out_fire_sprites_00000_9
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: 26}
+        - {x: -16, y: 26}
+        - {x: -30, y: 13}
+        - {x: -30, y: -57}
+        - {x: 29, y: -57}
+        - {x: 30, y: -53}
+        - {x: 30, y: -25}
+        - {x: 16, y: -6}
+    - name: Out_fire_sprites_00000_10
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.722168, y: 26}
+        - {x: -28.722168, y: -7}
+        - {x: -28.722168, y: -51}
+        - {x: -24.722168, y: -57}
+        - {x: 30.277832, y: -57}
+        - {x: 30.277832, y: -8}
+        - {x: 3.277832, y: 26}
+    - name: Out_fire_sprites_00000_11
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12.944458, y: 26}
+        - {x: -28.944458, y: -6}
+        - {x: -28.944458, y: -57}
+        - {x: 30.055542, y: -57}
+        - {x: 30.055542, y: -15}
+        - {x: 1.055542, y: 26}
+    - name: Out_fire_sprites_00000_12
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12.166626, y: 26}
+        - {x: -15.166626, y: 24}
+        - {x: -29.166626, y: -24}
+        - {x: -29.166626, y: -46}
+        - {x: -22.166626, y: -57}
+        - {x: -12.166626, y: -57}
+        - {x: -9.166626, y: -56}
+        - {x: 0.833374, y: -57}
+        - {x: 29.833374, y: -57}
+        - {x: 29.833374, y: -17}
+        - {x: 1.833374, y: 26}
+    - name: Out_fire_sprites_00000_13
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24.888916, y: 26}
+        - {x: -29.888916, y: -10}
+        - {x: -29.888916, y: -57}
+        - {x: 30.111084, y: -57}
+        - {x: 30.111084, y: -19}
+        - {x: 9.111084, y: 26}
+    - name: Out_fire_sprites_00000_14
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5.611084, y: 26}
+        - {x: -9.611084, y: 21}
+        - {x: -16.611084, y: -10}
+        - {x: -13.611084, y: -14}
+        - {x: -28.611084, y: -28}
+        - {x: -28.611084, y: -45}
+        - {x: -21.611084, y: -57}
+        - {x: 31.388916, y: -57}
+        - {x: 31.388916, y: -17}
+        - {x: 1.388916, y: 26}
+    - name: Out_fire_sprites_00000_15
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.833374, y: 23}
+        - {x: -28.833374, y: -26}
+        - {x: -28.833374, y: -37}
+        - {x: -25.833374, y: -52}
+        - {x: -22.833374, y: -57}
+        - {x: 30.166626, y: -57}
+        - {x: 30.166626, y: -12}
+        - {x: 6.166626, y: 23}
+    - name: Out_fire_sprites_00000_16
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19.944458, y: -19}
+        - {x: -15.055542, y: -19}
+        - {x: -29.055542, y: -23}
+        - {x: -29.055542, y: -50}
+        - {x: -26.055542, y: -57}
+        - {x: 29.944458, y: -57}
+        - {x: 29.944458, y: -27}
+        - {x: 23.944458, y: -21}
+    - name: Out_fire_sprites_00000_17
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.77771, y: -19}
+        - {x: -29.77771, y: -27}
+        - {x: -29.77771, y: -44}
+        - {x: -23.77771, y: -57}
+        - {x: 30.22229, y: -57}
+        - {x: 30.22229, y: -21}
+        - {x: 27.22229, y: -19}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
