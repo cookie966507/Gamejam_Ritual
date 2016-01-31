@@ -86,7 +86,8 @@ public class MainMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if((player1Ready && player2Ready && player3Ready && player4Ready)) {
+		if(((player1Ready == player1Joined) && (player2Joined == player2Ready) && (player3Joined == player3Ready) && (player4Joined == player4Ready))
+            && !(!(player1Ready) && !(player2Ready) && !(player3Ready) && !(player4Ready))) {
 			transform.GetChild(2).GetChild(6).GetComponent<CanvasGroup>().alpha += Time.deltaTime;
 			if(gameCountDownTimer <= 0) {
 
