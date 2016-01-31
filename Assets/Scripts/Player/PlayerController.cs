@@ -12,9 +12,20 @@ namespace Assets.Scripts.Player
     {
         private bool pickedUpThisTurn;
 
+
         new void Update()
         {
             base.Update();
+			if (fallingOffEdge) {
+				if(transform.localScale.x <= 0) {
+					life.Deactivate();
+					transform.localScale = Vector3.one*0.75f;
+					transform.eulerAngles = Vector3.zero;
+					sprite.localEulerAngles = Vector3.zero;
+					GetComponent<SpriteRenderer>().enabled = true;
+					fallingOffEdge = false;
+				}
+			}
             if (heldObject != null)
             {
                 heldObject.transform.position = transform.position + new Vector3(0, 0.1f, 0);
@@ -99,6 +110,8 @@ namespace Assets.Scripts.Player
                 active = false;
             }
         }
+
+
 
         void OnTriggerStay2D(Collider2D col)
         {

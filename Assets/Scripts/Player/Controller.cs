@@ -83,6 +83,7 @@ namespace Assets.Scripts.Player
            if(goInactive) gameObject.SetActive(false);
         }
 
+
         /// <summary>
         /// Reenables the player
         /// </summary>

@@ -39,9 +39,9 @@ namespace Assets.Scripts.Data
 
         public GameObject field;
 
-        private Dictionary<Enums.Characters, PlayerID> characterToPlayer;
+		private GameObject dialogHolder;
 
-		private float inbetweenAnimationFloat;
+        private Dictionary<Enums.Characters, PlayerID> characterToPlayer;
 
         // Sets up singleton instance. Will remain if one does not already exist in scene
         void Awake()
@@ -82,8 +82,13 @@ namespace Assets.Scripts.Data
                 goblets.Add(findGoblets[i]);
             }
 
+			dialogHolder = GameObject.Find("DialogHolder");
+
             currentGame = games[Random.Range(0, games.Count)];
             currentGame.Init();
+
+			Camera.main.GetComponent<Animator>().SetTrigger("GodDemands");
+			dialogHolder.GetComponent<SpriteRenderer>().sprite = currentGame.instructions;
             
         }
 
@@ -102,8 +107,10 @@ namespace Assets.Scripts.Data
                     currentGame = games[Random.Range(0, games.Count)];
                 }
 
-                
+				Camera.main.GetComponent<Animator>().SetTrigger("GodDemands");
+				dialogHolder.GetComponent<SpriteRenderer>().sprite = currentGame.instructions;
             }
+			dialogHolder.transform.localScale = Vector3.one*Mathf.Max(1.5f,(Mathf.Sin(Time.time*8f)+1));
             
         }
 

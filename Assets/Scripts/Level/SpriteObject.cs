@@ -18,6 +18,8 @@ namespace Assets.Scripts.Level
 
         private Vector3 initPosition;
 
+		protected bool fallingOffEdge;
+
         void OnEnable()
         {
             UpdateSortingLayer();
@@ -43,16 +45,24 @@ namespace Assets.Scripts.Level
 
         public void Update()
         {
-            heightOffGround = sprite.position.y - transform.position.y;
-            if (heightOffGround > 0 && falling)
-            {
-                active = false;
-                Fall();
-            }
-            else if(falling && !active && heightOffGround <=0)
-            {
-                HitGround();
-            }
+			if(fallingOffEdge) {
+				GetComponent<SpriteRenderer>().enabled = false;
+				if(transform.localScale.x > 0) {
+					transform.localScale -= Vector3.one*Time.deltaTime;
+					transform.Rotate(new Vector3(0,0,Time.deltaTime*100f));
+				}
+			} else {
+	            heightOffGround = sprite.position.y - transform.position.y;
+	            if (heightOffGround > 0 && falling)
+	            {
+	                active = false;
+	                Fall();
+	            }
+	            else if(falling && !active && heightOffGround <=0)
+	            {
+	                HitGround();
+	            }
+			}
         }
 
         protected void Fall()
@@ -63,6 +73,11 @@ namespace Assets.Scripts.Level
             force = Mathf.SmoothDamp(force, 0f, ref throwVel, 0.1f);
             transform.Translate(Vector2.right * force * Time.deltaTime, Space.World);
         }
+
+		public virtual void FellOffEdge() {
+			fallingOffEdge = true;
+			active = false;
+		}
 
         protected virtual void HitGround()
         {
