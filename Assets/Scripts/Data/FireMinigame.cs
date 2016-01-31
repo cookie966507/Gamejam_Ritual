@@ -12,7 +12,7 @@ namespace Assets.Scripts.Data
 		[SerializeField]
 		private GameObject firePlace;
 
-		private float fireTimer = 10f;
+		private float[] fireTimers = {10f, 10f, 10f, 10f};
 
 		public override void Init ()
 		{
@@ -21,7 +21,11 @@ namespace Assets.Scripts.Data
 
 		public override void Run ()
 		{
-			fireTimer -= Time.deltaTime;
+			for(int i = 0; i < 4; i++) {
+				fireTimers[i] -= Time.deltaTime;
+			}
 		}
+
+
 	}
 }
