@@ -7,6 +7,7 @@ using Assets.Scripts.Util;
 using TeamUtility.IO;
 using Assets.Scripts.Level;
 using System.Linq;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Data
@@ -37,7 +38,7 @@ namespace Assets.Scripts.Data
 
         public const int MAX_SCORE = 100;
         private int numGames = 5;
-        private int pointStep = 20;
+        private int pointStep = 100;
 		private bool transitionStarted = false;
 		private bool scoreAdded = false;
 		private float demandingTimer = 1f, transitionTimer2 = 0f;
@@ -47,6 +48,12 @@ namespace Assets.Scripts.Data
         public GameObject field;
 
 		private GameObject dialogHolder;
+
+		private Enums.Characters winningCharacter;
+		private bool gameWon;
+		private float winTimer;
+		private GameObject winningCharacterSprite;
+		
 
         private Dictionary<Enums.Characters, PlayerID> characterToPlayer;
 
@@ -100,8 +107,8 @@ namespace Assets.Scripts.Data
 
 			field = GameObject.Find("Field");
 
-//            currentGame = games[Random.Range(0, games.Count)];
-			currentGame = games[0];
+            currentGame = games[Random.Range(0, games.Count)];
+
             for (int i = 0; i < controllers.Count; i++)
             {
                 controllers[i].Enable();
@@ -109,11 +116,44 @@ namespace Assets.Scripts.Data
                 controllers[i].transform.position = playerNode.transform.position;
             }
                 
+
+
             currentGame.Init();
 			Camera.main.GetComponent<Animator>().SetTrigger("GodDemands");
 			dialogHolder.GetComponent<SpriteRenderer>().sprite = currentGame.instructions;
 
+			winningCharacterSprite = GameObject.Find("WinningCharacterSprite");
+
+			for(int i = 0; i < players.Length; i++) {
+				Debug.Log(players[i].name);
+				Debug.Log(players[i].GetComponent<Controller>().ID);
+				Debug.Log(players.Length + " " + controllers.Count);
+			}
+
         }
+
+		public void ResetGame() {
+			Camera.main.GetComponent<Animator>().SetTrigger("RestartGame");
+
+			for(int i = 0; i < 4; i++) {
+				playerScores[i] = 0;
+			}
+			foreach(PlayerID id in characterToPlayer.Values) {
+				Enums.Characters c = characterToPlayer.FirstOrDefault(x => x.Value == id).Key;
+				Goblet g = goblets.Find(x => x.character.Equals(c));
+				g.UpdateScale(Mathf.Clamp01(((float)playerScores[((int)id) - 1]) / (float)MAX_SCORE));
+			}
+
+			inGame = true;
+
+			for (int i = 0; i < controllers.Count; i++)
+			{
+				controllers[i].Enable();
+				RespawnNode playerNode = respawnNodes.Find(x => x.ID.Equals(controllers[i].ID));
+				controllers[i].transform.position = playerNode.transform.position;
+			}
+
+		}
 
         void Update()
         {
@@ -131,18 +171,16 @@ namespace Assets.Scripts.Data
 						Debug.Log("Transition Started");
 						transitionStarted = true;
 						if(IncrementPlayerScore(currentGame.Winners)) {
-							//break out of loop
-							Debug.Log("SOMEONE WON");
+							inGame = false;
+							gameWon = true;
+							winTimer = 3f;
 						}
 						demandingTimer = 5f;
 						transitionTimer2 = 15f;
-//						currentGame = games[Random.Range(0, games.Count)];
-						currentGame = games[1];
+						currentGame = games[Random.Range(0, games.Count)];
 						Debug.Log("Next game chosen: " + currentGame.name);
 					} else {
 						demandingTimer -= Time.deltaTime;
-
-						Debug.Log(demandingTimer + " " + transitionTimer2);
 
 						if(demandingTimer <= 0) {
 							Debug.Log("God is demanding");
@@ -160,47 +198,21 @@ namespace Assets.Scripts.Data
 							transitionStarted = false;
 						}
 					}
-					// if we havent already handled the transition
-					//now we have handled the transition
-					//add score
-					//check if someone won - leave loop if so
-					//start a timer before the god demands again
-					//choose next game
-
-					//if that timer is finished, then trigger the demand animation
-
-					//after the animation is finished, initialize the next game
-					//we haven't handled the transition
-
-
-
-
-//					if (!scoreAdded && !IncrementPlayerScore(currentGame.Winners))
-//					{
-//						scoreAdded = true;
-//						// pick a new game
-//						//						currentGame = games[Random.Range(0, games.Count)];
-//						currentGame = games[1];
-//						Debug.Log("Game manager has chosen next game: " + currentGame.name);
-//					}
-////					Debug.Log(transitionTimer + " " + 
-//					transitionTimer -= Time.deltaTime;
-//					if(transitionStarted && Camera.main.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Nothing")
-//						&& !Camera.main.GetComponent<Animator>().IsInTransition(0)) {
-//						Debug.Log("GM is initializing the next game");
-//						currentGame.Init();
-//						scoreAdded = false;
-//						transitionStarted = false;
-//					}
-//					if(transitionTimer <= 0 && !transitionStarted) {
-//						Debug.Log("GM is playing god demand animation");
-//						transitionStarted = true;
-//                    	Camera.main.GetComponent<Animator>().SetTrigger("GodDemands");
-//						dialogHolder.GetComponent<SpriteRenderer>().sprite = currentGame.instructions;
-//					}
                 }
 				dialogHolder.transform.localScale = Vector3.one*Mathf.Max(1.5f,(Mathf.Sin(Time.time*8f)+1));
-            }
+			} else if(gameWon) {
+				winTimer -= Time.deltaTime;
+				if(winTimer <= 0) {
+					gameWon = false;
+					Camera.main.GetComponent<Animator>().SetTrigger("GameEnd");
+					for(int i = 0; i < controllers.Count; i++) {
+						if(controllers[i].Character == winningCharacter) {
+							winningCharacterSprite.GetComponent<Image>().sprite = controllers[i].Sprite.GetComponent<SpriteRenderer>().sprite;
+							break;
+						}
+					}
+				}
+			}
         }
 
         private bool IncrementPlayerScore(List<PlayerID> winners)
@@ -212,7 +224,10 @@ namespace Assets.Scripts.Data
                 Enums.Characters c = characterToPlayer.FirstOrDefault(x => x.Value == id).Key;
                 Goblet g = goblets.Find(x => x.character.Equals(c));
 				g.UpdateScale(Mathf.Clamp01(((float)playerScores[((int)id) - 1]) / (float)MAX_SCORE));
-                if (playerScores[((int)id)-1] >= MAX_SCORE) scoreReached = true;
+				if (playerScores[((int)id)-1] >= MAX_SCORE) {
+					scoreReached = true;
+					winningCharacter = c;
+				}
             }
             return scoreReached;
         }
