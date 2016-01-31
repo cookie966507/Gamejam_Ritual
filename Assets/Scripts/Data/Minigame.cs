@@ -10,6 +10,7 @@ namespace Assets.Scripts.Data
         private List<PlayerID> winners;
         [SerializeField]
         protected float timer = 0;
+		public Sprite instructions;
 
         public abstract void Init();
         public abstract void Run();
