@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Assets.Scripts.Player;
+using Assets.Scripts.Util;
 
 namespace Assets.Scripts.Level
 {
 	public class Fireplace : MonoBehaviour {
 
 		private float fuel = 10f;
-//		public 
+		public Enums.Characters linkedCharacter;
 
 		// Use this for initialization
 		void Start () {
@@ -37,7 +38,7 @@ namespace Assets.Scripts.Level
 				fuel += 5f;
 			}
 			if(fuel > 0 && col.GetComponent<PlayerController>()) {
-				col.GetComponent<PlayerController>().LifeComponent.ModifyHealth(-100);
+				col.GetComponent<PlayerController>().LifeComponent.Deactivate();
 				transform.GetChild(0).GetComponent<ParticleSystem>().Emit(400);
 				transform.GetChild(0).GetComponent<ParticleSystem>().Play();
 				fuel += 2f;

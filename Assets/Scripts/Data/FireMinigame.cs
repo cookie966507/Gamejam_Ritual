@@ -14,8 +14,6 @@ namespace Assets.Scripts.Data
 		private GameObject[] firePlaces;
 
 
-
-
 		public override void Init ()
 		{
 			Winners = new System.Collections.Generic.List<PlayerID>();
@@ -38,7 +36,7 @@ namespace Assets.Scripts.Data
 				else survivor = i;
 			}
 			if(numDead == 3) {
-				
+				Winners.Add(GameManager.instance.CharacterToPlayer[firePlaces[survivor].GetComponent<Fireplace>().linkedCharacter]);
 				finished = true;
 			}
 		}
