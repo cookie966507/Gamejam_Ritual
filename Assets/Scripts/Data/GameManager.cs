@@ -7,6 +7,7 @@ using Assets.Scripts.Util;
 using TeamUtility.IO;
 using Assets.Scripts.Level;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Data
 {
@@ -36,6 +37,9 @@ namespace Assets.Scripts.Data
 
         public const int MAX_SCORE = 100;
         private int numGames = 5;
+        private int pointStep = 20;
+
+        public bool inGame = false;
 
         public GameObject field;
 
@@ -59,14 +63,21 @@ namespace Assets.Scripts.Data
             goblets = new List<Goblet>();
         }
 
-        void Start()
+        void OnLevelWasLoaded(int i)
         {
-            
+            if (SceneManager.GetActiveScene().name == "Eric Test2") StartGame();
+        }
+
+        public void StartGame()
+        {
+            inGame = true;
+            /*
             Controller[] findControllers = FindObjectsOfType<Controller>();
             for (int i = 0; i < findControllers.Length; i++)
             {
                 controllers.Add(findControllers[i]);
             }
+            */
 
             RespawnNode[] findNodes = FindObjectsOfType<RespawnNode>();
             for (int i = 0; i < findNodes.Length; i++)
@@ -81,28 +92,35 @@ namespace Assets.Scripts.Data
             }
 
             currentGame = games[Random.Range(0, games.Count)];
+            for (int i = 0; i < controllers.Count; i++)
+            {
+                controllers[i].Enable();
+                RespawnNode playerNode = respawnNodes.Find(x => x.ID.Equals(controllers[i].ID));
+                controllers[i].transform.position = playerNode.transform.position;
+            }
+                
             currentGame.Init();
-            
         }
 
         void Update()
         {
-            
-            if(!currentGame.finished)
+            if (inGame)
             {
-                currentGame.Run();
-            }
-            else
-            {
-                if(!IncrementPlayerScore(currentGame.Winners))
+                if (!currentGame.finished)
                 {
-                    // pick a new game
-                    currentGame = games[Random.Range(0, games.Count)];
+                    currentGame.Run();
                 }
+                else
+                {
+                    if (!IncrementPlayerScore(currentGame.Winners))
+                    {
+                        // pick a new game
+                        currentGame = games[Random.Range(0, games.Count)];
+                    }
 
-                //startInBetweenAnimation
+                    //startInBetweenAnimation
+                }
             }
-            
         }
 
         private bool IncrementPlayerScore(List<PlayerID> winners)
@@ -110,11 +128,10 @@ namespace Assets.Scripts.Data
             bool scoreReached = false;
             foreach(PlayerID id in winners)
             {
-                playerScores[((int)id)-1] += MAX_SCORE / numGames;
+                playerScores[((int)id)-1] += pointStep;
                 Enums.Characters c = characterToPlayer.FirstOrDefault(x => x.Value == id).Key;
                 Goblet g = goblets.Find(x => x.character.Equals(c));
-                //g.UpdateScale(Mathf.Clamp01((playerScores[((int)id) - 1]) / MAX_SCORE));
-                g.UpdateScale(1);
+                g.UpdateScale(Mathf.Clamp01((playerScores[((int)id) - 1]) / MAX_SCORE));
                 if (playerScores[((int)id)-1] >= MAX_SCORE) scoreReached = true;
             }
             return scoreReached;
@@ -157,13 +174,13 @@ namespace Assets.Scripts.Data
         public void InitializePlayer(Enums.Characters character, PlayerID id)
         {
             GameObject newPlayer = Instantiate(players[(int)character]);
+            DontDestroyOnLoad(newPlayer);
             Controller controller = newPlayer.GetComponent<Controller>();
             controller.ID = id;
             controller.Character = character;
             controllers.Add(controller);
             controller.Disable();
             characterToPlayer.Add(character, id);
-            Debug.Log("Player " + id.ToString() + " chose " + character.ToString());
             
         }
 

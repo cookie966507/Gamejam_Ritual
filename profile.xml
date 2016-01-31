@@ -455,7 +455,7 @@
     </AxisConfiguration>
     <AxisConfiguration name="LB_P1">
       <description />
-      <positive>Joystick1Button14</positive>
+      <positive>Joystick1Button13</positive>
       <altPositive>None</altPositive>
       <negative>None</negative>
       <altNegative>None</altNegative>
@@ -470,7 +470,7 @@
     </AxisConfiguration>
     <AxisConfiguration name="RB_P1">
       <description />
-      <positive>Joystick1Button15</positive>
+      <positive>Joystick1Button14</positive>
       <altPositive>None</altPositive>
       <negative>None</negative>
       <altNegative>None</altNegative>

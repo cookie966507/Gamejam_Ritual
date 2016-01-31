@@ -17,14 +17,14 @@ namespace Assets.Scripts.Level
 
         void Awake()
         {
-            maxHeight = transform.localScale.y;
-            liquid.localScale = new Vector3(transform.localScale.x, 0f, 1f);
+            maxHeight = liquid.localScale.y;
+            liquid.localScale = new Vector3(liquid.localScale.x, 0f, 1f);
         }
 
         void Update()
         {
-            currentHeight = Mathf.SmoothDamp(currentHeight, targetHeight, ref vel, 0.1f);
-            liquid.localScale = new Vector3(transform.localScale.x, currentHeight, 1f);
+            currentHeight = Mathf.SmoothDamp(currentHeight, targetHeight, ref vel, 2f);
+            liquid.localScale = new Vector3(liquid.localScale.x, currentHeight, 1f);
         }
 
         public void UpdateScale(float ratio)

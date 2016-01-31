@@ -34,12 +34,12 @@ namespace Assets.Scripts.Player
         {
             // Init all componenets
             InitializePlayerComponents();
+            anim = GetComponentInChildren<Animator>();
         }
 
         void Start()
         {
             base.Init();
-            anim = GetComponentInChildren<Animator>();
         }
 
         /// <summary>

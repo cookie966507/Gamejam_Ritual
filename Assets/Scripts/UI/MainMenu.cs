@@ -3,6 +3,8 @@ using System.Collections;
 using TeamUtility.IO;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Assets.Scripts.Data;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
@@ -88,8 +90,25 @@ public class MainMenu : MonoBehaviour {
 			|| (player1Ready && player2Ready && player3Ready && player4Ready)) {
 			transform.GetChild(2).GetChild(6).GetComponent<CanvasGroup>().alpha += Time.deltaTime;
 			if(gameCountDownTimer <= 0) {
-				//TODO: GO TO GAME
-			} else {
+                //TODO: GO TO GAME
+                if(player1Joined)
+                {
+                    GameManager.instance.InitializePlayer((Assets.Scripts.Util.Enums.Characters)Mathf.Abs(player1SelectedCharacter % 4), PlayerID.One);
+                }
+                if (player2Joined)
+                {
+                    GameManager.instance.InitializePlayer((Assets.Scripts.Util.Enums.Characters)Mathf.Abs(player2SelectedCharacter % 4), PlayerID.Two);
+                }
+                if (player3Joined)
+                {
+                    GameManager.instance.InitializePlayer((Assets.Scripts.Util.Enums.Characters)Mathf.Abs(player3SelectedCharacter % 4), PlayerID.Three);
+                }
+                if (player4Joined)
+                {
+                    GameManager.instance.InitializePlayer((Assets.Scripts.Util.Enums.Characters)Mathf.Abs(player4SelectedCharacter % 4), PlayerID.Four);
+                }
+                SceneManager.LoadScene("Eric Test2");
+            } else {
 				gameCountDownTimer -= Time.deltaTime;
 				transform.GetChild(2).GetChild(6).localScale = Vector3.one * (5-gameCountDownTimer)/2f;
 				transform.GetChild(2).GetChild(6).GetChild(1).GetComponent<Text>().text = countDown[(int)gameCountDownTimer];
