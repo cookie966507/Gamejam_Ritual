@@ -12,7 +12,6 @@ namespace Assets.Scripts.Player
     {
         private bool pickedUpThisTurn;
 
-
         new void Update()
         {
             base.Update();
@@ -133,6 +132,11 @@ namespace Assets.Scripts.Player
                     movement.MoveSpeed /= 2;
                 }
             }
+        }
+
+        public SpriteObject HeldObject
+        {
+            get { return heldObject; }
         }
     }
 }

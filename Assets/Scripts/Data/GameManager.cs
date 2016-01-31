@@ -100,8 +100,8 @@ namespace Assets.Scripts.Data
 
 			field = GameObject.Find("Field");
 
-//            currentGame = games[Random.Range(0, games.Count)];
-			currentGame = games[0];
+            currentGame = games[Random.Range(0, games.Count)];
+			//currentGame = games[0];
             for (int i = 0; i < controllers.Count; i++)
             {
                 controllers[i].Enable();
@@ -121,31 +121,26 @@ namespace Assets.Scripts.Data
             {
 				if (!currentGame.finished && !transitionStarted)
                 {
-					Debug.Log(currentGame.name + " is running");
                     currentGame.Run();
                 }
                 else
                 {
 
 					if(!transitionStarted) {
-						Debug.Log("Transition Started");
 						transitionStarted = true;
 						if(IncrementPlayerScore(currentGame.Winners)) {
 							//break out of loop
-							Debug.Log("SOMEONE WON");
 						}
 						demandingTimer = 5f;
 						transitionTimer2 = 15f;
-//						currentGame = games[Random.Range(0, games.Count)];
-						currentGame = games[1];
-						Debug.Log("Next game chosen: " + currentGame.name);
+						currentGame = games[Random.Range(0, games.Count)];
+						//currentGame = games[1];
 					} else {
 						demandingTimer -= Time.deltaTime;
 
 						Debug.Log(demandingTimer + " " + transitionTimer2);
 
 						if(demandingTimer <= 0) {
-							Debug.Log("God is demanding");
 							transitionTimer2 = 5f;
 							demandingTimer = 10f;
 							Camera.main.GetComponent<Animator>().SetTrigger("GodDemands");
@@ -155,7 +150,6 @@ namespace Assets.Scripts.Data
 						transitionTimer2 -= Time.deltaTime;
 
 						if(transitionTimer2 <= 0) {
-							Debug.Log("Next game init");
 							currentGame.Init();
 							transitionStarted = false;
 						}
@@ -171,33 +165,6 @@ namespace Assets.Scripts.Data
 
 					//after the animation is finished, initialize the next game
 					//we haven't handled the transition
-
-
-
-
-//					if (!scoreAdded && !IncrementPlayerScore(currentGame.Winners))
-//					{
-//						scoreAdded = true;
-//						// pick a new game
-//						//						currentGame = games[Random.Range(0, games.Count)];
-//						currentGame = games[1];
-//						Debug.Log("Game manager has chosen next game: " + currentGame.name);
-//					}
-////					Debug.Log(transitionTimer + " " + 
-//					transitionTimer -= Time.deltaTime;
-//					if(transitionStarted && Camera.main.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Nothing")
-//						&& !Camera.main.GetComponent<Animator>().IsInTransition(0)) {
-//						Debug.Log("GM is initializing the next game");
-//						currentGame.Init();
-//						scoreAdded = false;
-//						transitionStarted = false;
-//					}
-//					if(transitionTimer <= 0 && !transitionStarted) {
-//						Debug.Log("GM is playing god demand animation");
-//						transitionStarted = true;
-//                    	Camera.main.GetComponent<Animator>().SetTrigger("GodDemands");
-//						dialogHolder.GetComponent<SpriteRenderer>().sprite = currentGame.instructions;
-//					}
                 }
 				dialogHolder.transform.localScale = Vector3.one*Mathf.Max(1.5f,(Mathf.Sin(Time.time*8f)+1));
             }
