@@ -1,0 +1,189 @@
+fileFormatVersion: 2
+guid: e846b62f6709e3745829f081405409ff
+timeCreated: 1454177415
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: jaguar idle club_00000_0
+    21300002: jaguar idle club_00000_1
+    21300004: jaguar idle club_00000_2
+    21300006: jaguar idle club_00000_3
+    21300008: jaguar idle club_00000_4
+    21300010: jaguar idle club_00000_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: jaguar idle club_00000_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 109}
+        - {x: -66, y: 9}
+        - {x: -66, y: -71}
+        - {x: -43, y: -99}
+        - {x: 55, y: -99}
+        - {x: 66, y: -53}
+        - {x: 66, y: 103}
+        - {x: 14, y: 109}
+    - name: jaguar idle club_00000_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 56, y: 75}
+        - {x: 46, y: 68}
+        - {x: 37, y: 55}
+        - {x: 29, y: 97}
+        - {x: 6, y: 108}
+        - {x: -66, y: 108}
+        - {x: -66, y: -99}
+        - {x: 23, y: -99}
+        - {x: 29, y: -95}
+        - {x: 62, y: -9}
+        - {x: 66, y: 32}
+        - {x: 66, y: 73}
+    - name: jaguar idle club_00000_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: 108}
+        - {x: -28, y: 108}
+        - {x: -66, y: 15}
+        - {x: -66, y: -48}
+        - {x: -26, y: -47}
+        - {x: -24, y: -43}
+        - {x: -24, y: -96}
+        - {x: -9, y: -99}
+        - {x: 26, y: -99}
+        - {x: 42, y: -87}
+        - {x: 66, y: 21}
+        - {x: 66, y: 81}
+    - name: jaguar idle club_00000_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 56, y: 75}
+        - {x: 46, y: 68}
+        - {x: 37, y: 55}
+        - {x: 29, y: 97}
+        - {x: 6, y: 108}
+        - {x: -66, y: 108}
+        - {x: -66, y: -99}
+        - {x: 23, y: -99}
+        - {x: 29, y: -95}
+        - {x: 62, y: -9}
+        - {x: 66, y: 32}
+        - {x: 66, y: 73}
+    - name: jaguar idle club_00000_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 109}
+        - {x: -66, y: 9}
+        - {x: -66, y: -71}
+        - {x: -43, y: -99}
+        - {x: 55, y: -99}
+        - {x: 66, y: -53}
+        - {x: 66, y: 103}
+        - {x: 14, y: 109}
+    - name: jaguar idle club_00000_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19, y: 110}
+        - {x: -33, y: 110}
+        - {x: -66, y: -30}
+        - {x: -66, y: -42}
+        - {x: -26, y: -99}
+        - {x: 66, y: -99}
+        - {x: 66, y: 82}
+        - {x: 64, y: 94}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

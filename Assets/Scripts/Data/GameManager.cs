@@ -147,8 +147,8 @@ namespace Assets.Scripts.Data
             controllers.Remove(removePlayer);
         }
 
-        #region C# Properties
+#region C# Properties
 
-        #endregion
+#endregion
     }
 }
