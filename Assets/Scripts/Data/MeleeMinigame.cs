@@ -9,11 +9,15 @@ namespace Assets.Scripts.Data
         private int numAlive;
         public override void Init()
         {
+			finished = false;
             numAlive = GameManager.instance.AllPlayers.Count;
             Winners = new List<PlayerID>();
             for(int i = 0; i < GameManager.instance.AllPlayers.Count; i++)
             {
                 GameManager.instance.AllPlayers[i].MovementComponent.MeleeEnabled = true;
+				GameManager.instance.AllPlayers[i].LifeComponent.Health = 100;
+				GameManager.instance.AllPlayers[i].Anim.SetBool("Stay Dead", false);
+				GameManager.instance.AllPlayers[i].Active = true;
             }
         }
         public override void Run()
@@ -24,7 +28,7 @@ namespace Assets.Scripts.Data
                 {
                     if (GameManager.instance.AllPlayers[i].LifeComponent.Health > 0) Winners.Add(GameManager.instance.AllPlayers[i].ID);
                     finished = true;
-                    Debug.Log("Complete");
+					GameManager.instance.AllPlayers[i].MovementComponent.MeleeEnabled = false;
                 }
             }
             else

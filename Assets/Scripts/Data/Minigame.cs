@@ -6,7 +6,7 @@ namespace Assets.Scripts.Data
 {
     public abstract class Minigame : MonoBehaviour
     {
-        public bool finished = false;
+		public bool finished = false;
         private List<PlayerID> winners;
         [SerializeField]
         protected float timer = 0;
