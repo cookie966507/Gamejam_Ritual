@@ -250,7 +250,8 @@ namespace Assets.Scripts.Data
         {
             // Find the dead player again
             Controller deadPlayer = controllers.Find(x => x.ID.Equals(System.Enum.Parse(typeof(PlayerID), t.ID)));
-            RespawnNode playerNode = respawnNodes.Find(x => x.ID.Equals(System.Enum.Parse(typeof(PlayerID), t.ID)));
+            //RespawnNode playerNode = respawnNodes.Find(x => x.ID.Equals(System.Enum.Parse(typeof(PlayerID), t.ID)));
+            RespawnNode playerNode = respawnNodes[Random.Range(0, respawnNodes.Count)];
             if (deadPlayer != null)
             {
                 deadPlayer.transform.position = playerNode.transform.position;

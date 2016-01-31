@@ -89,12 +89,6 @@ namespace Assets.Scripts.Player
                 {
                     anim.SetBool("Attack", false);
                 }
-
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    sprite.position = transform.position + new Vector3(0, 10, 0);
-                    falling = true;
-                }
             }
         }
 
