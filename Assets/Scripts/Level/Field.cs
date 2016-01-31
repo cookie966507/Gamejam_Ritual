@@ -11,7 +11,7 @@ namespace Assets.Scripts.Level
             if(col.tag.Equals("Player"))
             {
                 Controller fallingPlayer = col.GetComponent<Controller>();
-                fallingPlayer.LifeComponent.ModifyHealth(-100);
+                fallingPlayer.LifeComponent.Deactivate();
             }
         }
     } 

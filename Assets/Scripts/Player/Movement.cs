@@ -12,6 +12,7 @@ namespace Assets.Scripts.Player
         private float rotationSpeed = 0.1f, rotationVel = 0f, targetZRotation = 360, currentZRotation = 0f;
         private float rollVel = 0f;
         private int rollDir = 1;
+        private bool meleeEnabled = false;
 
         void OnDisable()
         {
@@ -20,7 +21,8 @@ namespace Assets.Scripts.Player
 
         void Update()
         {
-            if(rolling)
+            controller.Anim.SetBool("Club", meleeEnabled);
+            if (rolling)
             {
                 rollTimer += Time.deltaTime;
                 rollSlerp = Mathf.SmoothDamp(rollSlerp, targetSlerp, ref rollVel, slerpSpeed);
@@ -104,5 +106,12 @@ namespace Assets.Scripts.Player
         {
 			get { return facingRight; }
 		}
+
+        public bool MeleeEnabled
+        {
+            get { return meleeEnabled; }
+            set
+            { meleeEnabled = value; }
+        }
 	}
 }
