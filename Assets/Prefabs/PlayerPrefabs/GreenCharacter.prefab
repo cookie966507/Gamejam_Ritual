@@ -24,6 +24,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 472806}
   - 61: {fileID: 6142646}
+  - 114: {fileID: 11445058}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Hitbox
@@ -89,7 +90,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 439590}
@@ -101,7 +102,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.98, y: -1.5, z: 0}
+  m_LocalPosition: {x: -1.98, y: -1.57, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 412420}
@@ -196,6 +197,17 @@ MonoBehaviour:
   sprite: {fileID: 412420}
   id: 2
   holdPoint: {fileID: 426202}
+--- !u!114 &11445058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b86793b1c267f174fbdd10cfd850f822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11451130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -218,6 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a42bc409bcfe7c342b47adecd66b371c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitEffect: {fileID: 199610, guid: b1fb58d52801563499acd2dc2b9894bc, type: 2}
 --- !u!212 &21241920
 SpriteRenderer:
   m_ObjectHideFlags: 1

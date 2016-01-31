@@ -16,6 +16,8 @@ namespace Assets.Scripts.Player
         // ID for identifying which player is accepting input
         [SerializeField]
         protected PlayerID id;
+        [SerializeField]
+        protected Util.Enums.Characters character;
 
         // Componenets to manage
         protected Movement movement;
@@ -75,10 +77,10 @@ namespace Assets.Scripts.Player
         /// <summary>
         /// Disables the player
         /// </summary>
-        public void Disable()
+        public void Disable(bool goInactive = true)
         {
            active = false;
-           gameObject.SetActive(false);
+           if(goInactive) gameObject.SetActive(false);
         }
 
         /// <summary>
@@ -89,6 +91,12 @@ namespace Assets.Scripts.Player
            active = true;
            gameObject.SetActive(true);
            anim.SetBool("Club", movement.MeleeEnabled);
+            if (life.Health <= 0)
+            {
+                anim.SetTrigger("Dead");
+                anim.SetBool("Stay Dead", true);
+                active = false;
+            }
         }
 
         #region C# Properties
@@ -125,6 +133,12 @@ namespace Assets.Scripts.Player
         {
             get { return id; }
             set { id = value; }
+        }
+
+        public Util.Enums.Characters Character
+        {
+            get { return character; }
+            set { character = value; }
         }
 
         public Animator Anim

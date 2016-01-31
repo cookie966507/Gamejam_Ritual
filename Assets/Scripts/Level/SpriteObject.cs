@@ -25,7 +25,7 @@ namespace Assets.Scripts.Level
 
         void OnDisable()
         {
-            sprite.transform.localPosition = initPosition;
+            if(sprite) sprite.localPosition = initPosition;
             force = 0f;
             falling = false;
         }

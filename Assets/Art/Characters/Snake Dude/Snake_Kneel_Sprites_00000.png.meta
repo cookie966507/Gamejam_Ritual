@@ -1,0 +1,314 @@
+fileFormatVersion: 2
+guid: 55f0663f28bf81742ab733b66d966e08
+timeCreated: 1454231934
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Snake_Kneel_Sprites_00000_0
+    21300002: Snake_Kneel_Sprites_00000_1
+    21300004: Snake_Kneel_Sprites_00000_2
+    21300006: Snake_Kneel_Sprites_00000_3
+    21300008: Snake_Kneel_Sprites_00000_4
+    21300010: Snake_Kneel_Sprites_00000_5
+    21300012: Snake_Kneel_Sprites_00000_6
+    21300014: Snake_Kneel_Sprites_00000_7
+    21300016: Snake_Kneel_Sprites_00000_8
+    21300018: Snake_Kneel_Sprites_00000_9
+    21300020: Snake_Kneel_Sprites_00000_10
+    21300022: Snake_Kneel_Sprites_00000_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Snake_Kneel_Sprites_00000_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31.5, y: 69.5}
+        - {x: -31.5, y: -38.5}
+        - {x: -18.5, y: -67.5}
+        - {x: 21.5, y: -67.5}
+        - {x: 31.5, y: -55.5}
+        - {x: 31.5, y: 51.5}
+        - {x: 19.5, y: 69.5}
+    - name: Snake_Kneel_Sprites_00000_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.333328, y: 64.5}
+        - {x: -29.333328, y: 47.5}
+        - {x: -29.333328, y: -66.5}
+        - {x: -28.333328, y: -70.5}
+        - {x: 3.6666718, y: -70.5}
+        - {x: 13.666672, y: -66.5}
+        - {x: 38.66667, y: -48.5}
+        - {x: 38.66667, y: 59.5}
+        - {x: 37.66667, y: 64.5}
+    - name: Snake_Kneel_Sprites_00000_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.1666565, y: -71.5}
+        - {x: 14.8333435, y: -72.5}
+        - {x: 26.833344, y: -55.5}
+        - {x: 51.833344, y: -2.5}
+        - {x: 51.833344, y: 32.5}
+        - {x: 40.833344, y: 46.5}
+        - {x: 24.833344, y: 57.5}
+        - {x: 7.8333435, y: 57.5}
+        - {x: -28.166656, y: 15.5}
+        - {x: -28.166656, y: -44.5}
+        - {x: -25.166656, y: -60.5}
+        - {x: -16.166656, y: -72.5}
+        - {x: -7.1666565, y: -72.5}
+        - {x: -5.1666565, y: -69.5}
+        - {x: -5.1666565, y: -64.5}
+        - {x: -5.1666565, y: -68.5}
+    - name: Snake_Kneel_Sprites_00000_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 46.5, y: -16.5}
+        - {x: 30.5, y: -16.5}
+        - {x: 51.5, y: 12.5}
+        - {x: 51.5, y: 18.5}
+        - {x: 43.5, y: 45.5}
+        - {x: 39.5, y: 46.5}
+        - {x: 12.5, y: 46.5}
+        - {x: -24.5, y: 30.5}
+        - {x: -31.5, y: -1.5}
+        - {x: -31.5, y: -61.5}
+        - {x: -28.5, y: -72.5}
+        - {x: 10.5, y: -72.5}
+        - {x: 24.5, y: -69.5}
+        - {x: 50.5, y: -31.5}
+        - {x: 51.5, y: -28.5}
+        - {x: 51.5, y: -21.5}
+    - name: Snake_Kneel_Sprites_00000_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 37.666687, y: -58.5}
+        - {x: 42.666687, y: -48.5}
+        - {x: 56.666687, y: -15.5}
+        - {x: 56.666687, y: 32.5}
+        - {x: 22.666687, y: 32.5}
+        - {x: -9.333313, y: 23.5}
+        - {x: -35.333313, y: -7.5}
+        - {x: -35.333313, y: -70.5}
+        - {x: 25.666687, y: -70.5}
+        - {x: 26.666687, y: -66.5}
+        - {x: 26.666687, y: -61.5}
+        - {x: 25.666687, y: -59.5}
+    - name: Snake_Kneel_Sprites_00000_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1.166626, y: 29.5}
+        - {x: -36.166626, y: 7.5}
+        - {x: -36.166626, y: -70.5}
+        - {x: 44.833374, y: -70.5}
+        - {x: 58.833374, y: -41.5}
+        - {x: 58.833374, y: 29.5}
+    - name: Snake_Kneel_Sprites_00000_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.5, y: 25.5}
+        - {x: -35.5, y: 18.5}
+        - {x: -36.5, y: 5.5}
+        - {x: -36.5, y: -70.5}
+        - {x: 26.5, y: -70.5}
+        - {x: 38.5, y: -64.5}
+        - {x: 60.5, y: -9.5}
+        - {x: 60.5, y: 25.5}
+    - name: Snake_Kneel_Sprites_00000_7
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35.333252, y: -3.5}
+        - {x: -35.333252, y: -70.5}
+        - {x: 51.666748, y: -70.5}
+        - {x: 60.666748, y: -58.5}
+        - {x: 60.666748, y: 29.5}
+        - {x: 26.666748, y: 29.5}
+        - {x: 1.666748, y: 26.5}
+        - {x: -22.333252, y: 6.5}
+    - name: Snake_Kneel_Sprites_00000_8
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 53.833374, y: 31.5}
+        - {x: -3.166626, y: 31.5}
+        - {x: -36.166626, y: -12.5}
+        - {x: -36.166626, y: -70.5}
+        - {x: 39.833374, y: -70.5}
+        - {x: 60.833374, y: 0.5}
+        - {x: 60.833374, y: 22.5}
+        - {x: 58.833374, y: 25.5}
+    - name: Snake_Kneel_Sprites_00000_9
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 56.5, y: 29.5}
+        - {x: 5.5, y: 29.5}
+        - {x: -32.5, y: 13.5}
+        - {x: -36.5, y: 4.5}
+        - {x: -36.5, y: -70.5}
+        - {x: 43.5, y: -70.5}
+        - {x: 45.5, y: -67.5}
+        - {x: 60.5, y: -0.5}
+        - {x: 60.5, y: 26.5}
+    - name: Snake_Kneel_Sprites_00000_10
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.333252, y: 25.5}
+        - {x: -35.333252, y: -4.5}
+        - {x: -35.333252, y: -70.5}
+        - {x: 29.666748, y: -70.5}
+        - {x: 34.666748, y: -64.5}
+        - {x: 60.666748, y: -12.5}
+        - {x: 60.666748, y: 25.5}
+    - name: Snake_Kneel_Sprites_00000_11
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.166626, y: 29.5}
+        - {x: -36.166626, y: -6.5}
+        - {x: -36.166626, y: -70.5}
+        - {x: 28.833374, y: -70.5}
+        - {x: 35.833374, y: -63.5}
+        - {x: 60.833374, y: -31.5}
+        - {x: 60.833374, y: 29.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
