@@ -4220,6 +4220,10 @@ Prefab:
       propertyPath: fireBurst
       value: 
       objectReference: {fileID: 8300000, guid: de00bd46167904a22a60b01778ad3c65, type: 3}
+    - target: {fileID: 11461856, guid: ee6377885105845879fa65b88f141b94, type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee6377885105845879fa65b88f141b94, type: 2}
   m_IsPrefabParent: 0

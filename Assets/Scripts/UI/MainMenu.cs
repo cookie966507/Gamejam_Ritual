@@ -86,9 +86,7 @@ public class MainMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if((player1Ready && player2Ready)
-			|| (player1Ready && player2Ready && player3Ready)
-			|| (player1Ready && player2Ready && player3Ready && player4Ready)) {
+		if((player1Ready && player2Ready && player3Ready && player4Ready)) {
 			transform.GetChild(2).GetChild(6).GetComponent<CanvasGroup>().alpha += Time.deltaTime;
 			if(gameCountDownTimer <= 0) {
 
@@ -226,7 +224,7 @@ public class MainMenu : MonoBehaviour {
 				} else if(InputManager.GetButtonDown("B_P3", PlayerID.Three) && player3Ready) {
 					player3Ready = false;
 				}
-				if(player3Ready) {
+				if(!player3Ready) {
 					if((InputManager.GetAxis("DPADHorizontal_P3", PlayerID.Three) > 0
 						|| InputManager.GetButton("DPADRight_P3", PlayerID.Three)) && navTimer < 0) {
 						SFXManager.instance.source.PlayOneShot(SFXManager.instance.menuClick);
@@ -270,7 +268,7 @@ public class MainMenu : MonoBehaviour {
 				} else if(InputManager.GetButtonDown("B_P4", PlayerID.Four) && player4Ready) {
 					player4Ready = false;
 				}
-				if(player4Ready) {
+				if(!player4Ready) {
 					if((InputManager.GetAxis("DPADHorizontal_P4", PlayerID.Four) > 0
 						|| InputManager.GetButton("DPADRight_P4", PlayerID.Four)) && navTimer < 0) {
 						SFXManager.instance.source.PlayOneShot(SFXManager.instance.menuClick);
