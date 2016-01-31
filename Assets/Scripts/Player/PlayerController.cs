@@ -15,7 +15,7 @@ namespace Assets.Scripts.Player
         new void Update()
         {
             base.Update();
-            if(heldObject != null)
+            if (heldObject != null)
             {
                 heldObject.transform.position = transform.position + new Vector3(0, 0.1f, 0);
                 heldObject.Sprite.transform.position = holdPoint.position;
@@ -71,6 +71,15 @@ namespace Assets.Scripts.Player
                         ThrowObject();
                 }
 
+                if (InputManager.GetButton("Action_P" + (int)id, id))
+                {
+                    anim.SetBool("Attack", true);
+                }
+                else
+                {
+                    anim.SetBool("Attack", false);
+                }
+
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     sprite.position = transform.position + new Vector3(0, 10, 0);
@@ -79,14 +88,22 @@ namespace Assets.Scripts.Player
             }
         }
 
+        protected override void HitGround()
+        {
+            base.HitGround();
+            anim.SetBool("Picked Up", false);
+        }
+
         void OnTriggerStay2D(Collider2D col)
         {
-            if (heldObject || movement.Rolling) return;
+            if (heldObject || movement.Rolling || !active) return;
+            if (InputManager.GetButton("Action_P" + (int)id, id)) return;
             if (InputManager.GetAxis("RightTrigger_P" + (int)id, id) > 0)
             {
                 heldObject = col.GetComponent<SpriteObject>();
                 if (heldObject)
                 {
+                    heldObject.GetComponentInChildren<Animator>().SetBool("Picked Up", true);
                     pickedUpThisTurn = true;
                     heldObject.Active = false;
                     heldObject.Falling = false;
