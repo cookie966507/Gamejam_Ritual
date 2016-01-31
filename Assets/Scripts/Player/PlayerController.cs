@@ -92,6 +92,12 @@ namespace Assets.Scripts.Player
         {
             base.HitGround();
             anim.SetBool("Picked Up", false);
+            if (life.Health <= 0)
+            {
+                anim.SetTrigger("Dead");
+                anim.SetBool("Stay Dead", true);
+                active = false;
+            }
         }
 
         void OnTriggerStay2D(Collider2D col)

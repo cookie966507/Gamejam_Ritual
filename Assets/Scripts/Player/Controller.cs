@@ -75,10 +75,10 @@ namespace Assets.Scripts.Player
         /// <summary>
         /// Disables the player
         /// </summary>
-        public void Disable()
+        public void Disable(bool goInactive = true)
         {
            active = false;
-           gameObject.SetActive(false);
+           if(goInactive) gameObject.SetActive(false);
         }
 
         /// <summary>
@@ -89,6 +89,12 @@ namespace Assets.Scripts.Player
            active = true;
            gameObject.SetActive(true);
            anim.SetBool("Club", movement.MeleeEnabled);
+            if (life.Health <= 0)
+            {
+                anim.SetTrigger("Dead");
+                anim.SetBool("Stay Dead", true);
+                active = false;
+            }
         }
 
         #region C# Properties

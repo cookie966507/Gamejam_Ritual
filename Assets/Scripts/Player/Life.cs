@@ -42,15 +42,18 @@ namespace Assets.Scripts.Player
 
         private void Die()
         {
-
+            controller.ThrowObject();
+            controller.Anim.SetTrigger("Dead");
+            controller.Anim.SetBool("Stay Dead", true);
+            controller.Disable(false);
         }
 
         /// <summary>
         /// Respawns the player and clears all previous effects
         /// </summary>
-        public void Respawn()
+        public void Respawn(bool restoreHealth = true)
         {
-            health = MAX_HEALTH;
+            //if(restoreHealth) health = MAX_HEALTH;
             controller.Enable();
         }
 

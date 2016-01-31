@@ -18,12 +18,12 @@ namespace Assets.Scripts.Data
         /// </summary>
         public static GameManager instance;
 
+        [SerializeField]
+        private GameObject[] players;
+
         // List of all the controllers of the players
         private List<Controller> controllers;
         private List<RespawnNode> respawnNodes;
-
-        [SerializeField]
-        private GameObject playerPrefab;
 
         private Minigame currentGame;
         [SerializeField]
@@ -57,6 +57,7 @@ namespace Assets.Scripts.Data
 
         void Start()
         {
+            
             Controller[] findControllers = FindObjectsOfType<Controller>();
             for (int i = 0; i < findControllers.Length; i++)
             {
@@ -71,10 +72,12 @@ namespace Assets.Scripts.Data
 
             currentGame = games[Random.Range(0, games.Count)];
             currentGame.Init();
+            
         }
 
         void Update()
         {
+            
             if(!currentGame.finished)
             {
                 currentGame.Run();
@@ -89,6 +92,7 @@ namespace Assets.Scripts.Data
 
                 //startInBetweenAnimation
             }
+            
         }
 
         private bool IncrementPlayerScore(List<PlayerID> winners)
@@ -130,24 +134,31 @@ namespace Assets.Scripts.Data
             {
                 deadPlayer.transform.position = playerNode.transform.position;
                 // Let the player revive itself
-                deadPlayer.LifeComponent.Respawn();
+                if (currentGame.GetType().Equals(typeof(MeleeMinigame))) deadPlayer.LifeComponent.Respawn(false);
+                else deadPlayer.LifeComponent.Respawn();
             }
         }
 
 
-        public void InitializePlayer(PlayerID id)
+        public void InitializePlayer(Enums.Characters character, PlayerID id)
         {
-            GameObject newPlayer = Instantiate(playerPrefab);
+            /*
+            Debug.Log((int)character);
+            GameObject newPlayer = Instantiate(players[(int)character]);
             Controller controller = newPlayer.GetComponent<Controller>();
             controller.ID = id;
             controllers.Add(controller);
             controller.Disable();
+            characterToPlayer.Add(character, id);
+            Debug.Log("Player " + id.ToString() + " chose " + character.ToString());
+            */
         }
 
-        public void RemovePlayer(PlayerID id)
+        public void RemovePlayer(Enums.Characters character)
         {
-            Controller removePlayer = controllers.Find(x => x.ID.Equals(id));
+            Controller removePlayer = controllers.Find(x => x.ID.Equals(characterToPlayer[character]));
             controllers.Remove(removePlayer);
+            characterToPlayer.Remove(character);
         }
 
 #region C# Properties
