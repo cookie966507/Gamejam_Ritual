@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Assets.Scripts.Level;
 using Assets.Scripts.Player;
 using Assets.Scripts.Timers;
-//using Assets.Scripts.Util;
+using Assets.Scripts.Util;
 using TeamUtility.IO;
 
 namespace Assets.Scripts.Data
@@ -36,6 +36,8 @@ namespace Assets.Scripts.Data
 
         public GameObject field;
 
+        private Dictionary<Enums.Characters, PlayerID> characterToPlayer;
+
         // Sets up singleton instance. Will remain if one does not already exist in scene
         void Awake()
         {
@@ -50,6 +52,7 @@ namespace Assets.Scripts.Data
             }
             controllers = new List<Controller>();
             respawnNodes = new List<RespawnNode>();
+            characterToPlayer = new Dictionary<Enums.Characters, PlayerID>();
         }
 
         void Start()
@@ -148,7 +151,14 @@ namespace Assets.Scripts.Data
         }
 
 #region C# Properties
-
-#endregion
+        public List<Controller> AllPlayers
+        {
+            get { return controllers; }
+        }
+        public Dictionary<Enums.Characters, PlayerID> CharacterToPlayer
+        {
+            get { return characterToPlayer; }
+        }
+        #endregion
     }
 }
