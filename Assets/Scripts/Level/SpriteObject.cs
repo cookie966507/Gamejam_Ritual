@@ -8,11 +8,15 @@ namespace Assets.Scripts.Level
         protected bool falling = false;
         protected bool active = true;
         protected float force = 0f;
+        protected float vertForce = -20f;
 
         private float throwVel = 0f;
+        private float vertVel = 0f;
 
         [SerializeField]
         protected Transform sprite;
+
+        private Vector3 initPosition;
 
         void OnEnable()
         {
@@ -21,7 +25,7 @@ namespace Assets.Scripts.Level
 
         void OnDisable()
         {
-            sprite.transform.position = transform.position;
+            sprite.transform.localPosition = initPosition;
             force = 0f;
             falling = false;
         }
@@ -34,6 +38,7 @@ namespace Assets.Scripts.Level
         protected virtual void Init()
         {
             UpdateSortingLayer();
+            initPosition = sprite.localPosition;
         }
 
         public void Update()
@@ -53,16 +58,19 @@ namespace Assets.Scripts.Level
         protected void Fall()
         {
             sprite.transform.Translate(-Vector2.up * 5f * Time.deltaTime, Space.World);
+                //vertForce = Mathf.SmoothDamp(vertForce, 5f, ref vertVel, 0.1f);
+                //sprite.transform.Translate(-Vector2.up * vertForce * Time.deltaTime, Space.World);
             force = Mathf.SmoothDamp(force, 0f, ref throwVel, 0.1f);
             transform.Translate(Vector2.right * force * Time.deltaTime, Space.World);
         }
 
         protected virtual void HitGround()
         {
-            sprite.transform.position = transform.position;
+            sprite.transform.localPosition = initPosition;
             falling = false;
             active = true;
             force = 0f;
+            vertForce = 0f;
         }
 
         public void UpdateSortingLayer()

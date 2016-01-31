@@ -38,6 +38,7 @@ namespace Assets.Scripts.Player
         {
             base.Init();
             anim = GetComponentInChildren<Animator>();
+            anim.SetBool("Club", true);
         }
 
         /// <summary>
