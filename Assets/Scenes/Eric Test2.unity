@@ -241,6 +241,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 17
       objectReference: {fileID: 0}
+    - target: {fileID: 11423362, guid: 36ea5167cd60c446fbe3071dbe448800, type: 2}
+      propertyPath: character
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36ea5167cd60c446fbe3071dbe448800, type: 2}
   m_IsPrefabParent: 0
@@ -3655,6 +3659,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 11443676, guid: 82843334357b34acebd7fae755cf8b4f, type: 2}
+      propertyPath: character
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 82843334357b34acebd7fae755cf8b4f, type: 2}
   m_IsPrefabParent: 0
@@ -3667,6 +3675,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 507461872}
   - 212: {fileID: 507461871}
+  - 114: {fileID: 507461873}
   m_Layer: 0
   m_Name: goblet_blue
   m_TagString: Untagged
@@ -3717,6 +3726,19 @@ Transform:
   - {fileID: 1149904999}
   m_Father: {fileID: 0}
   m_RootOrder: 9
+--- !u!114 &507461873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 507461870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d53f757f488ed944aa246ffe06af4397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: 1
+  liquid: {fileID: 1149904999}
 --- !u!1 &518588116
 GameObject:
   m_ObjectHideFlags: 0
@@ -3855,6 +3877,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 661037709}
   - 212: {fileID: 661037708}
+  - 114: {fileID: 661037710}
   m_Layer: 0
   m_Name: goblet_green
   m_TagString: Untagged
@@ -3905,6 +3928,19 @@ Transform:
   - {fileID: 1806481922}
   m_Father: {fileID: 0}
   m_RootOrder: 11
+--- !u!114 &661037710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 661037707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d53f757f488ed944aa246ffe06af4397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: 3
+  liquid: {fileID: 1806481922}
 --- !u!1 &661997294
 GameObject:
   m_ObjectHideFlags: 0
@@ -4075,9 +4111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d07666a821a9b448991d3ad6db5f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 0}
+  players: []
   games:
-  - {fileID: 1344998623}
+  - {fileID: 2107048173}
   field: {fileID: 727848916}
 --- !u!4 &767091690
 Transform:
@@ -4203,6 +4239,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 11402926, guid: bfb6ad30251f8460287b1d816fd6c6dd, type: 2}
+      propertyPath: character
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bfb6ad30251f8460287b1d816fd6c6dd, type: 2}
   m_IsPrefabParent: 0
@@ -4215,6 +4255,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 864667968}
   - 212: {fileID: 864667967}
+  - 114: {fileID: 864667969}
   m_Layer: 0
   m_Name: goblet_yellow
   m_TagString: Untagged
@@ -4265,6 +4306,19 @@ Transform:
   - {fileID: 1445224506}
   m_Father: {fileID: 0}
   m_RootOrder: 12
+--- !u!114 &864667969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 864667966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d53f757f488ed944aa246ffe06af4397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: 2
+  liquid: {fileID: 1445224506}
 --- !u!1 &1030204385
 GameObject:
   m_ObjectHideFlags: 0
@@ -4519,12 +4573,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!114 &1344998623 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11441952, guid: 00e6b4c3541606b4d8c06c46f138e584,
-    type: 2}
-  m_PrefabInternal: {fileID: 1198191570}
-  m_Script: {fileID: 11500000, guid: abf04848c16fc744db2320d5ab3898cf, type: 3}
 --- !u!4 &1344998626 stripped
 Transform:
   m_PrefabParentObject: {fileID: 463722, guid: 00e6b4c3541606b4d8c06c46f138e584, type: 2}
@@ -4841,6 +4889,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1902091184}
   - 212: {fileID: 1902091183}
+  - 114: {fileID: 1902091185}
   m_Layer: 0
   m_Name: goblet_red
   m_TagString: Untagged
@@ -4891,6 +4940,19 @@ Transform:
   - {fileID: 1087335152}
   m_Father: {fileID: 0}
   m_RootOrder: 10
+--- !u!114 &1902091185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1902091182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d53f757f488ed944aa246ffe06af4397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: 0
+  liquid: {fileID: 1087335152}
 --- !u!1 &1954941175
 GameObject:
   m_ObjectHideFlags: 0
@@ -5047,3 +5109,9 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e64fbbf024086b44d8d73718389589bd, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2107048173 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11482038, guid: e64fbbf024086b44d8d73718389589bd,
+    type: 2}
+  m_PrefabInternal: {fileID: 2105428080}
+  m_Script: {fileID: 11500000, guid: 09b881423854aed44b82eeec6c1932c0, type: 3}

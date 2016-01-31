@@ -5,6 +5,8 @@ using Assets.Scripts.Player;
 using Assets.Scripts.Timers;
 using Assets.Scripts.Util;
 using TeamUtility.IO;
+using Assets.Scripts.Level;
+using System.Linq;
 
 namespace Assets.Scripts.Data
 {
@@ -24,6 +26,7 @@ namespace Assets.Scripts.Data
         // List of all the controllers of the players
         private List<Controller> controllers;
         private List<RespawnNode> respawnNodes;
+        private List<Goblet> goblets;
 
         private Minigame currentGame;
         [SerializeField]
@@ -53,6 +56,7 @@ namespace Assets.Scripts.Data
             controllers = new List<Controller>();
             respawnNodes = new List<RespawnNode>();
             characterToPlayer = new Dictionary<Enums.Characters, PlayerID>();
+            goblets = new List<Goblet>();
         }
 
         void Start()
@@ -68,6 +72,12 @@ namespace Assets.Scripts.Data
             for (int i = 0; i < findNodes.Length; i++)
             {
                 respawnNodes.Add(findNodes[i]);
+            }
+
+            Goblet[] findGoblets = FindObjectsOfType<Goblet>();
+            for (int i = 0; i < findGoblets.Length; i++)
+            {
+                goblets.Add(findGoblets[i]);
             }
 
             currentGame = games[Random.Range(0, games.Count)];
@@ -101,6 +111,10 @@ namespace Assets.Scripts.Data
             foreach(PlayerID id in winners)
             {
                 playerScores[((int)id)-1] += MAX_SCORE / numGames;
+                Enums.Characters c = characterToPlayer.FirstOrDefault(x => x.Value == id).Key;
+                Goblet g = goblets.Find(x => x.character.Equals(c));
+                //g.UpdateScale(Mathf.Clamp01((playerScores[((int)id) - 1]) / MAX_SCORE));
+                g.UpdateScale(1);
                 if (playerScores[((int)id)-1] >= MAX_SCORE) scoreReached = true;
             }
             return scoreReached;
@@ -142,16 +156,15 @@ namespace Assets.Scripts.Data
 
         public void InitializePlayer(Enums.Characters character, PlayerID id)
         {
-            /*
-            Debug.Log((int)character);
             GameObject newPlayer = Instantiate(players[(int)character]);
             Controller controller = newPlayer.GetComponent<Controller>();
             controller.ID = id;
+            controller.Character = character;
             controllers.Add(controller);
             controller.Disable();
             characterToPlayer.Add(character, id);
             Debug.Log("Player " + id.ToString() + " chose " + character.ToString());
-            */
+            
         }
 
         public void RemovePlayer(Enums.Characters character)

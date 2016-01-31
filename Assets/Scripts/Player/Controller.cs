@@ -16,6 +16,8 @@ namespace Assets.Scripts.Player
         // ID for identifying which player is accepting input
         [SerializeField]
         protected PlayerID id;
+        [SerializeField]
+        protected Util.Enums.Characters character;
 
         // Componenets to manage
         protected Movement movement;
@@ -131,6 +133,12 @@ namespace Assets.Scripts.Player
         {
             get { return id; }
             set { id = value; }
+        }
+
+        public Util.Enums.Characters Character
+        {
+            get { return character; }
+            set { character = value; }
         }
 
         public Animator Anim
