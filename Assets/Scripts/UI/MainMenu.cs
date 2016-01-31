@@ -7,8 +7,22 @@ using UnityEngine.EventSystems;
 public class MainMenu : MonoBehaviour {
 
 	private GameObject player1JoiningBox, player2JoiningBox, player3JoiningBox, player4JoiningBox;
+	private Image player1CharacterImage, player2CharacterImage, player3CharacterImage, player4CharacterImage;
+	private Text player1CharacterName, player2CharacterName, player3CharacterName, player4CharacterName;
+	private Text player1ReadyText, player2ReadyText, player3ReadyText, player4ReadyText;
 	private bool player1Joined, player2Joined, player3Joined, player4Joined;
+	private bool player1Ready, player2Ready, player3Ready, player4Ready;
+	private int player1SelectedCharacter = -1, player2SelectedCharacter = -1, player3SelectedCharacter = -1, player4SelectedCharacter = -1;
 	private GameObject playerJoiningBackButton;
+
+	public Sprite[] charSprites;
+	public string[] charNames;
+
+	private string[] countDown = {"I", "II", "III", "IV", "V"};
+	private float gameCountDownTimer = 5f;
+
+	public static GameObject player1Char, player2Char, player3Char, player4Char;
+	public GameObject char1Prefab, char2Prefab, char3Prefab, char4Prefab;
 
 	private float navTimer;
 
@@ -19,40 +33,243 @@ public class MainMenu : MonoBehaviour {
 		player3JoiningBox = GameObject.Find("Player3Box");
 		player4JoiningBox = GameObject.Find("Player4Box");
 
+		player1CharacterImage = GameObject.Find("Player1CharImage").GetComponent<Image>();
+		player2CharacterImage = GameObject.Find("Player2CharImage").GetComponent<Image>();
+		player3CharacterImage = GameObject.Find("Player3CharImage").GetComponent<Image>();
+		player4CharacterImage = GameObject.Find("Player4CharImage").GetComponent<Image>();
+
+		player1CharacterName = GameObject.Find("Player1CharacterName").GetComponent<Text>();
+		player2CharacterName = GameObject.Find("Player2CharacterName").GetComponent<Text>();
+		player3CharacterName = GameObject.Find("Player3CharacterName").GetComponent<Text>();
+		player4CharacterName = GameObject.Find("Player4CharacterName").GetComponent<Text>();
+
+		player1ReadyText = GameObject.Find("Player1ReadyText").GetComponent<Text>();
+		player2ReadyText = GameObject.Find("Player2ReadyText").GetComponent<Text>();
+		player3ReadyText = GameObject.Find("Player3ReadyText").GetComponent<Text>();
+		player4ReadyText = GameObject.Find("Player4ReadyText").GetComponent<Text>();
+
 		playerJoiningBackButton = GameObject.Find("PlayerJoiningBackButton");
+	}
+
+	private bool IsCharacterAvailable(PlayerID pid) {
+		Debug.Log(player2Joined + " " + Mathf.Abs(player2SelectedCharacter%4) + " " + Mathf.Abs(player1SelectedCharacter%4));
+		switch(pid) {
+		case PlayerID.One:
+			if (player2Joined && (Mathf.Abs(player2SelectedCharacter%4) == Mathf.Abs(player1SelectedCharacter%4))) return false;
+			else if (player3Joined && (Mathf.Abs(player3SelectedCharacter%4) == Mathf.Abs(player1SelectedCharacter%4))) return false;
+			else if (player4Joined && (Mathf.Abs(player4SelectedCharacter%4) == Mathf.Abs(player1SelectedCharacter%4))) return false;
+			else return true;
+			break;
+		case PlayerID.Two:
+			if (player1Joined && (Mathf.Abs(player1SelectedCharacter%4) == Mathf.Abs(player2SelectedCharacter%4))) return false;
+			else if (player3Joined && (Mathf.Abs(player3SelectedCharacter%4) == Mathf.Abs(player2SelectedCharacter%4))) return false;
+			else if (player4Joined && (Mathf.Abs(player4SelectedCharacter%4) == Mathf.Abs(player2SelectedCharacter%4))) return false;
+			else return true;
+			break;
+		case PlayerID.Three:
+			if (player2Joined && (Mathf.Abs(player2SelectedCharacter%4) == Mathf.Abs(player3SelectedCharacter%4))) return false;
+			else if (player1Joined && (Mathf.Abs(player1SelectedCharacter%4) == Mathf.Abs(player3SelectedCharacter%4))) return false;
+			else if (player4Joined && (Mathf.Abs(player4SelectedCharacter%4) == Mathf.Abs(player3SelectedCharacter%4))) return false;
+			else return true;
+			break;
+		case PlayerID.Four:
+			if (player2Joined && (Mathf.Abs(player2SelectedCharacter%4) == Mathf.Abs(player4SelectedCharacter%4))) return false;
+			else if (player3Joined && (Mathf.Abs(player3SelectedCharacter%4) == Mathf.Abs(player4SelectedCharacter%4))) return false;
+			else if (player1Joined && (Mathf.Abs(player1SelectedCharacter%4) == Mathf.Abs(player4SelectedCharacter%4))) return false;
+			else return true;
+			break;
+		}
+		return false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if((player1Ready && player2Ready)
+			|| (player1Ready && player2Ready && player3Ready)
+			|| (player1Ready && player2Ready && player3Ready && player4Ready)) {
+			transform.GetChild(2).GetChild(6).GetComponent<CanvasGroup>().alpha += Time.deltaTime;
+			if(gameCountDownTimer <= 0) {
+				//TODO: GO TO GAME
+			} else {
+				gameCountDownTimer -= Time.deltaTime;
+				Debug.Log((int)Mathf.Ceil(gameCountDownTimer));
+				transform.GetChild(2).GetChild(6).localScale = Vector3.one * (5-gameCountDownTimer)/2f;
+				transform.GetChild(2).GetChild(6).GetChild(1).GetComponent<Text>().text = countDown[(int)Mathf.Ceil(gameCountDownTimer)];
+			}
+		} else {
+			gameCountDownTimer = 5;
+			transform.GetChild(2).GetChild(6).localScale = Vector3.one;
+			transform.GetChild(2).GetChild(6).GetComponent<CanvasGroup>().alpha -= Time.deltaTime;
+		}
+		navTimer -= Time.deltaTime;
 		if(GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("SplashLoop")
 			&& Input.anyKeyDown) {
 			GetComponent<Animator>().SetTrigger("SplashToMainMenu");
 		}
 		if(GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("MainMenuToPlayerJoin")
 			&& !GetComponent<Animator>().IsInTransition(0)) {
-			Debug.Log(player1Joined + " " + player1JoiningBox.transform.FindChild("P1_Press_A_Text").GetComponent<Text>().color.a);
+			//Player 1 CharacterSelection + Readying
+			if(player1Joined) {
+				player1JoiningBox.transform.FindChild("P1_Press_A_Text").GetComponent<CanvasGroup>().alpha -= Time.deltaTime;
+				player1JoiningBox.transform.GetChild(1).GetComponent<CanvasGroup>().alpha += Time.deltaTime;
+				if(InputManager.GetButtonDown("Action_P1", PlayerID.One) && !player1Ready && IsCharacterAvailable(PlayerID.One)) {
+					player1Ready = true;
+				} else if(InputManager.GetButtonDown("B_P1", PlayerID.One) && player1Ready) {
+					player1Ready = false;
+				}
+				if((InputManager.GetAxis("DPADHorizontal_P1", PlayerID.One) > 0
+					|| InputManager.GetButton("DPADRight_P1", PlayerID.One)) && navTimer < 0) {
+					navTimer = 0.2f;
+					player1CharacterImage.sprite = charSprites[Mathf.Abs(++player1SelectedCharacter%4)];
+					player1CharacterName.text = charNames[Mathf.Abs(player1SelectedCharacter%4)];
+				} else if((InputManager.GetAxis("DPADHorizontal_P1", PlayerID.One) < 0
+					|| InputManager.GetButton("DPADLeft_P1", PlayerID.One)) && navTimer < 0) {
+					navTimer = 0.2f;
+					player1CharacterImage.sprite = charSprites[Mathf.Abs(--player1SelectedCharacter%4)];
+					player1CharacterName.text = charNames[Mathf.Abs(player1SelectedCharacter%4)];
+				}
+			} else {
+				player1JoiningBox.transform.FindChild("P1_Press_A_Text").GetComponent<CanvasGroup>().alpha += Time.deltaTime;
+				player1JoiningBox.transform.GetChild(1).GetComponent<CanvasGroup>().alpha -= Time.deltaTime;
+			}
+			if(player1Ready) {
+				player1ReadyText.GetComponent<CanvasGroup>().alpha += Time.deltaTime;
+				player1JoiningBox.transform.GetChild(1).GetChild(0).GetComponent<CanvasGroup>().alpha -= Time.deltaTime;
+			} else {
+				player1ReadyText.GetComponent<CanvasGroup>().alpha -= Time.deltaTime;
+				player1JoiningBox.transform.GetChild(1).GetChild(0).GetComponent<CanvasGroup>().alpha += Time.deltaTime;
+			}
+
+			//Player 1 joining
 			if(InputManager.GetButtonDown("Action_P1", PlayerID.One) && !player1Joined) {
 				player1Joined = true;
-				player1JoiningBox.transform.FindChild("P1_Press_A_Text").GetComponent<Text>().CrossFadeAlpha(0,1f,false);
-			} else if(!player1Joined && player1JoiningBox.transform.FindChild("P1_Press_A_Text").GetComponent<CanvasRenderer>().GetColor().a == 0) {
-				player1JoiningBox.transform.FindChild("P1_Press_A_Text").GetComponent<Text>().CrossFadeAlpha(1,1f,false);
 			}
 			if (InputManager.GetButtonDown("B_P1", PlayerID.One) && player1Joined) {
 				player1Joined = false;
-			} else if (InputManager.GetButtonDown("B_P1", PlayerID.One)) {
+			} else if (InputManager.GetButtonDown("B_P1", PlayerID.One)) { //Only Player 1 is allowed to go back
 				ExecuteEvents.Execute(playerJoiningBackButton, new PointerEventData(EventSystem.current), ExecuteEvents.submitHandler);
 			}
-			if(InputManager.GetButton("Action_P2", PlayerID.Two)) {
 
+			//Player 2 CharacterSelection + Readying
+			if(player2Joined) {
+				player2JoiningBox.transform.FindChild("P2_Press_A_Text").GetComponent<CanvasGroup>().alpha -= Time.deltaTime;
+				player2JoiningBox.transform.GetChild(1).GetComponent<CanvasGroup>().alpha += Time.deltaTime;
+				if(InputManager.GetButtonDown("Action_P2", PlayerID.One) && !player2Ready && IsCharacterAvailable(PlayerID.Two)) {
+					player2Ready = true;
+				} else if(InputManager.GetButtonDown("B_P2", PlayerID.Two) && player2Ready) {
+					player2Ready = false;
+				}
+				if((InputManager.GetAxis("DPADHorizontal_P2", PlayerID.Two) > 0
+					|| InputManager.GetButton("DPADRight_P2", PlayerID.Two)) && navTimer < 0) {
+					navTimer = 0.2f;
+					player2CharacterImage.sprite = charSprites[Mathf.Abs(++player2SelectedCharacter%4)];
+					player2CharacterName.text = charNames[Mathf.Abs(player2SelectedCharacter%4)];
+				} else if((InputManager.GetAxis("DPADHorizontal_P2", PlayerID.Two) < 0
+					|| InputManager.GetButton("DPADLeft_P2", PlayerID.Two)) && navTimer < 0) {
+					navTimer = 0.2f;
+					player2CharacterImage.sprite = charSprites[Mathf.Abs(--player2SelectedCharacter%4)];
+					player2CharacterName.text = charNames[Mathf.Abs(player2SelectedCharacter%4)];
+				}
+			} else {
+				player2JoiningBox.transform.FindChild("P2_Press_A_Text").GetComponent<CanvasGroup>().alpha += Time.deltaTime;
+				player2JoiningBox.transform.GetChild(1).GetComponent<CanvasGroup>().alpha -= Time.deltaTime;
 			}
-			if(InputManager.GetButton("Action_P3", PlayerID.Three)) {
-
+			if(player2Ready) {
+				player2ReadyText.GetComponent<CanvasGroup>().alpha += Time.deltaTime;
+				player2JoiningBox.transform.GetChild(1).GetChild(0).GetComponent<CanvasGroup>().alpha -= Time.deltaTime;
+			} else {
+				player2ReadyText.GetComponent<CanvasGroup>().alpha -= Time.deltaTime;
+				player2JoiningBox.transform.GetChild(1).GetChild(0).GetComponent<CanvasGroup>().alpha += Time.deltaTime;
 			}
-			if(InputManager.GetButton("Action_P4", PlayerID.Four)) {
 
+			//Player 2 joining
+			if(InputManager.GetButtonDown("Action_P2", PlayerID.Two) && !player2Joined) {
+				player2Joined = true;
+			}
+			if (InputManager.GetButtonDown("B_P2", PlayerID.Two) && player2Joined) {
+				player2Joined = false;
+			}
+
+			//Player 3 CharacterSelection + Readying
+			if(player3Joined) {
+				player3JoiningBox.transform.FindChild("P3_Press_A_Text").GetComponent<CanvasGroup>().alpha -= Time.deltaTime;
+				player3JoiningBox.transform.GetChild(1).GetComponent<CanvasGroup>().alpha += Time.deltaTime;
+				if(InputManager.GetButtonDown("Action_P3", PlayerID.Three) && !player3Ready && IsCharacterAvailable(PlayerID.Three)) {
+					player3Ready = true;
+				} else if(InputManager.GetButtonDown("B_P3", PlayerID.Three) && player3Ready) {
+					player3Ready = false;
+				}
+				if((InputManager.GetAxis("DPADHorizontal_P3", PlayerID.Three) > 0
+					|| InputManager.GetButton("DPADRight_P3", PlayerID.Three)) && navTimer < 0) {
+					navTimer = 0.2f;
+					player3CharacterImage.sprite = charSprites[Mathf.Abs(++player3SelectedCharacter%4)];
+					player3CharacterName.text = charNames[Mathf.Abs(player3SelectedCharacter%4)];
+				} else if((InputManager.GetAxis("DPADHorizontal_P3", PlayerID.Three) < 0
+					|| InputManager.GetButton("DPADLeft_P3", PlayerID.Three)) && navTimer < 0) {
+					navTimer = 0.2f;
+					player3CharacterImage.sprite = charSprites[Mathf.Abs(--player3SelectedCharacter%4)];
+					player3CharacterName.text = charNames[Mathf.Abs(player3SelectedCharacter%4)];
+				}
+			} else {
+				player3JoiningBox.transform.FindChild("P3_Press_A_Text").GetComponent<CanvasGroup>().alpha += Time.deltaTime;
+				player3JoiningBox.transform.GetChild(1).GetComponent<CanvasGroup>().alpha -= Time.deltaTime;
+			}
+			if(player3Ready) {
+				player3ReadyText.GetComponent<CanvasGroup>().alpha += Time.deltaTime;
+				player3JoiningBox.transform.GetChild(1).GetChild(0).GetComponent<CanvasGroup>().alpha -= Time.deltaTime;
+			} else {
+				player3ReadyText.GetComponent<CanvasGroup>().alpha -= Time.deltaTime;
+				player3JoiningBox.transform.GetChild(1).GetChild(0).GetComponent<CanvasGroup>().alpha += Time.deltaTime;
+			}
+
+			//Player 3 joining
+			if(InputManager.GetButtonDown("Action_P3", PlayerID.Three) && !player3Joined) {
+				player3Joined = true;
+			}
+			if (InputManager.GetButtonDown("B_P3", PlayerID.Three) && player3Joined) {
+				player3Joined = false;
+			}
+
+			//Player 4 CharacterSelection + Readying
+			if(player4Joined) {
+				player4JoiningBox.transform.FindChild("P4_Press_A_Text").GetComponent<CanvasGroup>().alpha -= Time.deltaTime;
+				player4JoiningBox.transform.GetChild(1).GetComponent<CanvasGroup>().alpha += Time.deltaTime;
+				if(InputManager.GetButtonDown("Action_P4", PlayerID.Four) && !player4Ready && IsCharacterAvailable(PlayerID.Four)) {
+					player4Ready = true;
+				} else if(InputManager.GetButtonDown("B_P4", PlayerID.Four) && player4Ready) {
+					player4Ready = false;
+				}
+				if((InputManager.GetAxis("DPADHorizontal_P4", PlayerID.Four) > 0
+					|| InputManager.GetButton("DPADRight_P4", PlayerID.Four)) && navTimer < 0) {
+					navTimer = 0.2f;
+					player4CharacterImage.sprite = charSprites[Mathf.Abs(++player4SelectedCharacter%4)];
+					player4CharacterName.text = charNames[Mathf.Abs(player4SelectedCharacter%4)];
+				} else if((InputManager.GetAxis("DPADHorizontal_P4", PlayerID.Four) < 0
+					|| InputManager.GetButton("DPADLeft_P4", PlayerID.Four)) && navTimer < 0) {
+					navTimer = 0.2f;
+					player4CharacterImage.sprite = charSprites[Mathf.Abs(--player4SelectedCharacter%4)];
+					player4CharacterName.text = charNames[Mathf.Abs(player4SelectedCharacter%4)];
+				}
+			} else {
+				player4JoiningBox.transform.FindChild("P4_Press_A_Text").GetComponent<CanvasGroup>().alpha += Time.deltaTime;
+				player4JoiningBox.transform.GetChild(1).GetComponent<CanvasGroup>().alpha -= Time.deltaTime;
+			}
+			if(player4Ready) {
+				player4ReadyText.GetComponent<CanvasGroup>().alpha += Time.deltaTime;
+				player4JoiningBox.transform.GetChild(1).GetChild(0).GetComponent<CanvasGroup>().alpha -= Time.deltaTime;
+			} else {
+				player4ReadyText.GetComponent<CanvasGroup>().alpha -= Time.deltaTime;
+				player4JoiningBox.transform.GetChild(1).GetChild(0).GetComponent<CanvasGroup>().alpha += Time.deltaTime;
+			}
+
+			//Player 4 joining
+			if(InputManager.GetButtonDown("Action_P4", PlayerID.Four) && !player4Joined) {
+				player4Joined = true;
+			}
+			if (InputManager.GetButtonDown("B_P4", PlayerID.Four) && player4Joined) {
+				player4Joined = false;
 			}
 		} else {
-			navTimer -= Time.deltaTime;
 			if(InputManager.GetButton("Action_P1", PlayerID.One)) {
 				EventSystem cur = EventSystem.current;
 				GameObject curSelectedGameObject = EventSystem.current.currentSelectedGameObject;
