@@ -52,7 +52,6 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	private bool IsCharacterAvailable(PlayerID pid) {
-		Debug.Log(player2Joined + " " + Mathf.Abs(player2SelectedCharacter%4) + " " + Mathf.Abs(player1SelectedCharacter%4));
 		switch(pid) {
 		case PlayerID.One:
 			if (player2Joined && (Mathf.Abs(player2SelectedCharacter%4) == Mathf.Abs(player1SelectedCharacter%4))) return false;
@@ -92,9 +91,8 @@ public class MainMenu : MonoBehaviour {
 				//TODO: GO TO GAME
 			} else {
 				gameCountDownTimer -= Time.deltaTime;
-				Debug.Log((int)Mathf.Ceil(gameCountDownTimer));
 				transform.GetChild(2).GetChild(6).localScale = Vector3.one * (5-gameCountDownTimer)/2f;
-				transform.GetChild(2).GetChild(6).GetChild(1).GetComponent<Text>().text = countDown[(int)Mathf.Ceil(gameCountDownTimer)];
+				transform.GetChild(2).GetChild(6).GetChild(1).GetComponent<Text>().text = countDown[(int)gameCountDownTimer];
 			}
 		} else {
 			gameCountDownTimer = 5;
