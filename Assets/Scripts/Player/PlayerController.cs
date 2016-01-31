@@ -103,7 +103,9 @@ namespace Assets.Scripts.Player
                 heldObject = col.GetComponent<SpriteObject>();
                 if (heldObject)
                 {
-                    heldObject.GetComponentInChildren<Animator>().SetBool("Picked Up", true);
+					if(heldObject.GetComponent<PlayerController>()) {
+                    	heldObject.GetComponentInChildren<Animator>().SetBool("Picked Up", true);
+					}
                     pickedUpThisTurn = true;
                     heldObject.Active = false;
                     heldObject.Falling = false;
