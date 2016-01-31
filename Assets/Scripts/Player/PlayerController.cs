@@ -11,6 +11,7 @@ namespace Assets.Scripts.Player
     public class PlayerController : Controller
     {
         private bool pickedUpThisTurn;
+		private float walkSoundTimer;
 
         new void Update()
         {
@@ -42,22 +43,46 @@ namespace Assets.Scripts.Player
                     movement.MoveHorizontal(1, Mathf.Abs(hor));
                     anim.SetFloat("Speed", 1f);
                     sprite.GetComponent<SpriteRenderer>().flipX = false;
+
+					walkSoundTimer -= Time.deltaTime;
+					if(walkSoundTimer < 0) {
+						walkSoundTimer = 0.5f;
+						SFXManager.instance.source.PlayOneShot(SFXManager.instance.RandomRun());
+					}
                 }
                 else if (hor < 0)
                 {
                     movement.MoveHorizontal(-1, Mathf.Abs(hor));
                     anim.SetFloat("Speed", 1f);
                     sprite.GetComponent<SpriteRenderer>().flipX = true;
+
+					walkSoundTimer -= Time.deltaTime;
+					if(walkSoundTimer < 0) {
+						walkSoundTimer = 0.5f;
+						SFXManager.instance.source.PlayOneShot(SFXManager.instance.RandomRun());
+					}
                 }
                 if (vert > 0)
                 {
                     movement.MoveVertical(1, Mathf.Abs(vert));
                     anim.SetFloat("Speed", 1f);
+
+					walkSoundTimer -= Time.deltaTime;
+					if(walkSoundTimer < 0) {
+						walkSoundTimer = 0.5f;
+						SFXManager.instance.source.PlayOneShot(SFXManager.instance.RandomRun());
+					}
                 }
                 else if (vert < 0)
                 {
                     movement.MoveVertical(-1, Mathf.Abs(vert));
                     anim.SetFloat("Speed", 1f);
+
+					walkSoundTimer -= Time.deltaTime;
+					if(walkSoundTimer < 0) {
+						walkSoundTimer = 0.5f;
+						SFXManager.instance.source.PlayOneShot(SFXManager.instance.RandomRun());
+					}
                 }
 
                 if (hor == 0 && vert == 0) anim.SetFloat("Speed", 0);
@@ -66,11 +91,13 @@ namespace Assets.Scripts.Player
                 {
                     movement.InitRoll(-1);
                     anim.SetBool("Rolling", true);
+					SFXManager.instance.source.PlayOneShot(SFXManager.instance.roll);
                 }
                 if (InputManager.GetButtonDown("RB_P" + (int)id, id) && !heldObject)
                 {
                     movement.InitRoll(1);
                     anim.SetBool("Rolling", true);
+					SFXManager.instance.source.PlayOneShot(SFXManager.instance.roll);
                 }
 
                 if (InputManager.GetAxis("RightTrigger_P" + (int)id, id) <= 0)
@@ -123,7 +150,6 @@ namespace Assets.Scripts.Player
                     heldObject.Falling = false;
                     heldObject.transform.parent = transform;
                     heldObject.Sprite.position = holdPoint.position;
-                    movement.MoveSpeed /= 2;
                 }
             }
         }

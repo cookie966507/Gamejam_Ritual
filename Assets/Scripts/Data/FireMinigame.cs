@@ -16,10 +16,18 @@ namespace Assets.Scripts.Data
 
 		private List<Fireplace> inGameFirePlaces;
 
+		private List<GameObject> inGameLogs;
+
+		private float winnerFound = 2f;
+
 
 		public override void Init ()
 		{
+			finished = false;
 			Winners = new System.Collections.Generic.List<PlayerID>();
+
+			inGameFirePlaces = new List<Fireplace>();
+			inGameLogs = new List<GameObject>();
 
 			int numPlayers = GameManager.instance.AllPlayers.Count;
 
@@ -37,7 +45,14 @@ namespace Assets.Scripts.Data
 			}
 
 			for(int i = 0; i < 20; i++) {
-				GameObject.Instantiate(logs, new Vector2(0f, Random.Range(1f,-4f)), Quaternion.identity);
+				inGameLogs.Add((GameObject)GameObject.Instantiate(logs, new Vector2(Random.Range(-3,3), Random.Range(1f,-4f)), Quaternion.identity));
+			}
+
+			for(int i = 0; i < GameManager.instance.AllPlayers.Count; i++)
+			{
+				GameManager.instance.AllPlayers[i].LifeComponent.Health = 100;
+				GameManager.instance.AllPlayers[i].Anim.SetBool("Stay Dead", false);
+				GameManager.instance.AllPlayers[i].Active = true;
 			}
 		}
 
@@ -49,9 +64,24 @@ namespace Assets.Scripts.Data
 				if(f.Dead) numDead++;
 				else survivor = f;
 			}
-			if(numDead == 3) {
-				Winners.Add(GameManager.instance.CharacterToPlayer[survivor.linkedCharacter]);
-				finished = true;
+
+			if(numDead == GameManager.instance.AllPlayers.Count - 1) {
+				winnerFound -= Time.deltaTime;
+				if(winnerFound < 0) {
+					for(int i = 0; i < GameManager.instance.AllPlayers.Count; i++) {
+						GameManager.instance.AllPlayers[i].ThrowObject();
+					}
+
+					for(int i = 0; i < inGameLogs.Count; i++) {
+						Destroy(inGameLogs[i].gameObject);
+					}
+					for(int i = 0; i < inGameFirePlaces.Count; i++) {
+						Destroy(inGameFirePlaces[i].gameObject);
+					}
+					Winners.Add(GameManager.instance.CharacterToPlayer[survivor.linkedCharacter]);
+					finished = true;
+					winnerFound = 2f;
+				}
 			}
 		}
 

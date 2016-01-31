@@ -26,7 +26,7 @@ namespace Assets.Scripts.Player
         [SerializeField]
         protected Transform holdPoint;
 
-        protected SpriteObject heldObject;
+		public SpriteObject heldObject;
 
         protected Animator anim;
 
@@ -69,7 +69,6 @@ namespace Assets.Scripts.Player
                 heldObject.Falling = true;
                 heldObject.transform.parent = null;
                 heldObject = null;
-                movement.MoveSpeed *= 2;
                 anim.SetBool("Carry", false);
             }
         }

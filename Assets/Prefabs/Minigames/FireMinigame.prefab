@@ -41,8 +41,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finished: 0
   timer: 0
-  logs: {fileID: 0}
-  firePlace: {fileID: 0}
+  instructions: {fileID: 21300000, guid: 5ed49e45afae249edadcc102d0d4c52c, type: 3}
+  logs: {fileID: 177962, guid: a6cb95549211b4eb29d043520d6b1d6e, type: 2}
+  firePlaces:
+  - {fileID: 131796, guid: ac8c70e5f6b7b45729248eee42a19ba2, type: 2}
+  - {fileID: 143282, guid: 851cdd381bb364dc08b8937c2b081668, type: 2}
+  - {fileID: 129618, guid: 7a59e2f5657964dedbc9bece2e7d2dbe, type: 2}
+  - {fileID: 104952, guid: d429c50fb7c86434da51f6f316895714, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

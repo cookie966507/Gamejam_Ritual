@@ -11,6 +11,7 @@ namespace Assets.Scripts.Level
         {
             if(col.tag.Equals("Player"))
             {
+				SFXManager.instance.source.PlayOneShot(SFXManager.instance.RandomJab());
                 Controller controller = col.GetComponent<Controller>();
                 controller.LifeComponent.ModifyHealth(damage, true);
                 if (transform.root.GetComponent<Controller>().MovementComponent.FacingRight) controller.MovementComponent.InitRoll(1);

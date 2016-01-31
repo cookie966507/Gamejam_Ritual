@@ -45,12 +45,20 @@ namespace Assets.Scripts.Player
             if (rolling) return;
             if (dir < 0)
             {
-                transform.Translate(Vector3.left * moveSpeed * Time.deltaTime * ratio, Space.World);
+				if(controller.heldObject) {
+					transform.Translate(Vector3.left * moveSpeed * 0.5f * Time.deltaTime * ratio, Space.World);
+				} else {
+                	transform.Translate(Vector3.left * moveSpeed * Time.deltaTime * ratio, Space.World);
+				}
                 facingRight = false;
             }
             else
             {
-                transform.Translate(Vector3.right * moveSpeed * Time.deltaTime * ratio, Space.World);
+				if(controller.heldObject) {
+					transform.Translate(Vector3.right * moveSpeed * 0.5f * Time.deltaTime * ratio, Space.World);
+				} else {
+                	transform.Translate(Vector3.right * moveSpeed * Time.deltaTime * ratio, Space.World);
+				}
                 facingRight = true;
             }
             controller.UpdateSortingLayer();
@@ -59,12 +67,20 @@ namespace Assets.Scripts.Player
         {
             if (rolling) return;
             if (dir < 0)
-            {
-                transform.Translate(Vector3.down * moveSpeed * Time.deltaTime * ratio, Space.World);
+			{
+				if(controller.heldObject) {
+					transform.Translate(Vector3.down * moveSpeed * 0.5f * Time.deltaTime * ratio, Space.World);
+				} else {
+                	transform.Translate(Vector3.down * moveSpeed * Time.deltaTime * ratio, Space.World);
+				}
             }
             else
             {
-                transform.Translate(Vector3.up * moveSpeed * Time.deltaTime * ratio, Space.World);
+				if(controller.heldObject) {
+					transform.Translate(Vector3.up * moveSpeed * 0.5f * Time.deltaTime * ratio, Space.World);
+				} else {
+                	transform.Translate(Vector3.up * moveSpeed * Time.deltaTime * ratio, Space.World);
+				}
             }
             controller.UpdateSortingLayer();
         }

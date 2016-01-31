@@ -36,12 +36,14 @@ namespace Assets.Scripts.Level
 				transform.GetChild(0).GetComponent<ParticleSystem>().Emit(200);
 				transform.GetChild(0).GetComponent<ParticleSystem>().Play();
 				fuel += 5f;
+				SFXManager.instance.source.PlayOneShot(SFXManager.instance.fireBurst);
 			}
 			if(fuel > 0 && col.GetComponent<PlayerController>()) {
 				col.GetComponent<PlayerController>().LifeComponent.Deactivate();
 				transform.GetChild(0).GetComponent<ParticleSystem>().Emit(400);
 				transform.GetChild(0).GetComponent<ParticleSystem>().Play();
 				fuel += 2f;
+				SFXManager.instance.source.PlayOneShot(SFXManager.instance.fireBurst);
 			}
 			
 		}

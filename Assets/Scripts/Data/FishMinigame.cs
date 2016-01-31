@@ -92,8 +92,8 @@ namespace Assets.Scripts.Data
                 if (EndGame != null) EndGame();
                 for(int i = 0; i < inGameBaskets.Count; i++)
                 {
-                    inGameBaskets[i].transform.parent = null;
                     GameManager.instance.AllPlayers.Find(x => x.Character.Equals(inGameBaskets[i].Character)).ThrowObject();
+					inGameBaskets[i].transform.parent = null;
                     Destroy(inGameBaskets[i].gameObject);
                 }
             }

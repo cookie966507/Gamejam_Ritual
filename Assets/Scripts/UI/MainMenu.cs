@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour {
 	private Text player1ReadyText, player2ReadyText, player3ReadyText, player4ReadyText;
 	private bool player1Joined, player2Joined, player3Joined, player4Joined;
 	private bool player1Ready, player2Ready, player3Ready, player4Ready;
-	private int player1SelectedCharacter = -1, player2SelectedCharacter = -1, player3SelectedCharacter = -1, player4SelectedCharacter = -1;
+	private int player1SelectedCharacter = 0, player2SelectedCharacter = 0, player3SelectedCharacter = 0, player4SelectedCharacter = 0;
 	private GameObject playerJoiningBackButton;
 
 	public Sprite[] charSprites;
@@ -136,16 +136,20 @@ public class MainMenu : MonoBehaviour {
 				} else if(InputManager.GetButtonDown("B_P1", PlayerID.One) && player1Ready) {
 					player1Ready = false;
 				}
-				if((InputManager.GetAxis("DPADHorizontal_P1", PlayerID.One) > 0
-					|| InputManager.GetButton("DPADRight_P1", PlayerID.One)) && navTimer < 0) {
-					navTimer = 0.2f;
-					player1CharacterImage.sprite = charSprites[Mathf.Abs(++player1SelectedCharacter%4)];
-					player1CharacterName.text = charNames[Mathf.Abs(player1SelectedCharacter%4)];
-				} else if((InputManager.GetAxis("DPADHorizontal_P1", PlayerID.One) < 0
-					|| InputManager.GetButton("DPADLeft_P1", PlayerID.One)) && navTimer < 0) {
-					navTimer = 0.2f;
-					player1CharacterImage.sprite = charSprites[Mathf.Abs(--player1SelectedCharacter%4)];
-					player1CharacterName.text = charNames[Mathf.Abs(player1SelectedCharacter%4)];
+				if(!player1Ready) {
+					if((InputManager.GetAxis("DPADHorizontal_P1", PlayerID.One) > 0
+						|| InputManager.GetButton("DPADRight_P1", PlayerID.One)) && navTimer < 0) {
+						SFXManager.instance.source.PlayOneShot(SFXManager.instance.menuClick);
+						navTimer = 0.2f;
+						player1CharacterImage.sprite = charSprites[Mathf.Abs(++player1SelectedCharacter%4)];
+						player1CharacterName.text = charNames[Mathf.Abs(player1SelectedCharacter%4)];
+					} else if((InputManager.GetAxis("DPADHorizontal_P1", PlayerID.One) < 0
+						|| InputManager.GetButton("DPADLeft_P1", PlayerID.One)) && navTimer < 0) {
+						SFXManager.instance.source.PlayOneShot(SFXManager.instance.menuClick);
+						navTimer = 0.2f;
+						player1CharacterImage.sprite = charSprites[Mathf.Abs(--player1SelectedCharacter%4)];
+						player1CharacterName.text = charNames[Mathf.Abs(player1SelectedCharacter%4)];
+					}
 				}
 			} else {
 				player1JoiningBox.transform.FindChild("P1_Press_A_Text").GetComponent<CanvasGroup>().alpha += Time.deltaTime;
@@ -178,16 +182,20 @@ public class MainMenu : MonoBehaviour {
 				} else if(InputManager.GetButtonDown("B_P2", PlayerID.Two) && player2Ready) {
 					player2Ready = false;
 				}
-				if((InputManager.GetAxis("DPADHorizontal_P2", PlayerID.Two) > 0
-					|| InputManager.GetButton("DPADRight_P2", PlayerID.Two)) && navTimer < 0) {
-					navTimer = 0.2f;
-					player2CharacterImage.sprite = charSprites[Mathf.Abs(++player2SelectedCharacter%4)];
-					player2CharacterName.text = charNames[Mathf.Abs(player2SelectedCharacter%4)];
-				} else if((InputManager.GetAxis("DPADHorizontal_P2", PlayerID.Two) < 0
-					|| InputManager.GetButton("DPADLeft_P2", PlayerID.Two)) && navTimer < 0) {
-					navTimer = 0.2f;
-					player2CharacterImage.sprite = charSprites[Mathf.Abs(--player2SelectedCharacter%4)];
-					player2CharacterName.text = charNames[Mathf.Abs(player2SelectedCharacter%4)];
+				if(!player2Ready) {
+					if((InputManager.GetAxis("DPADHorizontal_P2", PlayerID.Two) > 0
+						|| InputManager.GetButton("DPADRight_P2", PlayerID.Two)) && navTimer < 0) {
+						SFXManager.instance.source.PlayOneShot(SFXManager.instance.menuClick);
+						navTimer = 0.2f;
+						player2CharacterImage.sprite = charSprites[Mathf.Abs(++player2SelectedCharacter%4)];
+						player2CharacterName.text = charNames[Mathf.Abs(player2SelectedCharacter%4)];
+					} else if((InputManager.GetAxis("DPADHorizontal_P2", PlayerID.Two) < 0
+						|| InputManager.GetButton("DPADLeft_P2", PlayerID.Two)) && navTimer < 0) {
+						SFXManager.instance.source.PlayOneShot(SFXManager.instance.menuClick);
+						navTimer = 0.2f;
+						player2CharacterImage.sprite = charSprites[Mathf.Abs(--player2SelectedCharacter%4)];
+						player2CharacterName.text = charNames[Mathf.Abs(player2SelectedCharacter%4)];
+					}
 				}
 			} else {
 				player2JoiningBox.transform.FindChild("P2_Press_A_Text").GetComponent<CanvasGroup>().alpha += Time.deltaTime;
@@ -218,16 +226,20 @@ public class MainMenu : MonoBehaviour {
 				} else if(InputManager.GetButtonDown("B_P3", PlayerID.Three) && player3Ready) {
 					player3Ready = false;
 				}
-				if((InputManager.GetAxis("DPADHorizontal_P3", PlayerID.Three) > 0
-					|| InputManager.GetButton("DPADRight_P3", PlayerID.Three)) && navTimer < 0) {
-					navTimer = 0.2f;
-					player3CharacterImage.sprite = charSprites[Mathf.Abs(++player3SelectedCharacter%4)];
-					player3CharacterName.text = charNames[Mathf.Abs(player3SelectedCharacter%4)];
-				} else if((InputManager.GetAxis("DPADHorizontal_P3", PlayerID.Three) < 0
-					|| InputManager.GetButton("DPADLeft_P3", PlayerID.Three)) && navTimer < 0) {
-					navTimer = 0.2f;
-					player3CharacterImage.sprite = charSprites[Mathf.Abs(--player3SelectedCharacter%4)];
-					player3CharacterName.text = charNames[Mathf.Abs(player3SelectedCharacter%4)];
+				if(player3Ready) {
+					if((InputManager.GetAxis("DPADHorizontal_P3", PlayerID.Three) > 0
+						|| InputManager.GetButton("DPADRight_P3", PlayerID.Three)) && navTimer < 0) {
+						SFXManager.instance.source.PlayOneShot(SFXManager.instance.menuClick);
+						navTimer = 0.2f;
+						player3CharacterImage.sprite = charSprites[Mathf.Abs(++player3SelectedCharacter%4)];
+						player3CharacterName.text = charNames[Mathf.Abs(player3SelectedCharacter%4)];
+					} else if((InputManager.GetAxis("DPADHorizontal_P3", PlayerID.Three) < 0
+						|| InputManager.GetButton("DPADLeft_P3", PlayerID.Three)) && navTimer < 0) {
+						SFXManager.instance.source.PlayOneShot(SFXManager.instance.menuClick);
+						navTimer = 0.2f;
+						player3CharacterImage.sprite = charSprites[Mathf.Abs(--player3SelectedCharacter%4)];
+						player3CharacterName.text = charNames[Mathf.Abs(player3SelectedCharacter%4)];
+					}
 				}
 			} else {
 				player3JoiningBox.transform.FindChild("P3_Press_A_Text").GetComponent<CanvasGroup>().alpha += Time.deltaTime;
@@ -258,16 +270,20 @@ public class MainMenu : MonoBehaviour {
 				} else if(InputManager.GetButtonDown("B_P4", PlayerID.Four) && player4Ready) {
 					player4Ready = false;
 				}
-				if((InputManager.GetAxis("DPADHorizontal_P4", PlayerID.Four) > 0
-					|| InputManager.GetButton("DPADRight_P4", PlayerID.Four)) && navTimer < 0) {
-					navTimer = 0.2f;
-					player4CharacterImage.sprite = charSprites[Mathf.Abs(++player4SelectedCharacter%4)];
-					player4CharacterName.text = charNames[Mathf.Abs(player4SelectedCharacter%4)];
-				} else if((InputManager.GetAxis("DPADHorizontal_P4", PlayerID.Four) < 0
-					|| InputManager.GetButton("DPADLeft_P4", PlayerID.Four)) && navTimer < 0) {
-					navTimer = 0.2f;
-					player4CharacterImage.sprite = charSprites[Mathf.Abs(--player4SelectedCharacter%4)];
-					player4CharacterName.text = charNames[Mathf.Abs(player4SelectedCharacter%4)];
+				if(player4Ready) {
+					if((InputManager.GetAxis("DPADHorizontal_P4", PlayerID.Four) > 0
+						|| InputManager.GetButton("DPADRight_P4", PlayerID.Four)) && navTimer < 0) {
+						SFXManager.instance.source.PlayOneShot(SFXManager.instance.menuClick);
+						navTimer = 0.2f;
+						player4CharacterImage.sprite = charSprites[Mathf.Abs(++player4SelectedCharacter%4)];
+						player4CharacterName.text = charNames[Mathf.Abs(player4SelectedCharacter%4)];
+					} else if((InputManager.GetAxis("DPADHorizontal_P4", PlayerID.Four) < 0
+						|| InputManager.GetButton("DPADLeft_P4", PlayerID.Four)) && navTimer < 0) {
+						SFXManager.instance.source.PlayOneShot(SFXManager.instance.menuClick);
+						navTimer = 0.2f;
+						player4CharacterImage.sprite = charSprites[Mathf.Abs(--player4SelectedCharacter%4)];
+						player4CharacterName.text = charNames[Mathf.Abs(player4SelectedCharacter%4)];
+					}
 				}
 			} else {
 				player4JoiningBox.transform.FindChild("P4_Press_A_Text").GetComponent<CanvasGroup>().alpha += Time.deltaTime;
@@ -298,6 +314,7 @@ public class MainMenu : MonoBehaviour {
 			if((InputManager.GetAxis("Vertical_P1", PlayerID.One) == 1f
 				|| InputManager.GetAxis("DPADVertical_P1", PlayerID.One) == 1f
 				|| InputManager.GetButtonDown("DPADUp_P1", PlayerID.One)) && navTimer < 0) {
+				SFXManager.instance.source.PlayOneShot(SFXManager.instance.menuClick);
 				navTimer = 0.1f;
 				EventSystem cur = EventSystem.current;
 				GameObject curSelectedGameObject = EventSystem.current.currentSelectedGameObject;
@@ -309,6 +326,7 @@ public class MainMenu : MonoBehaviour {
 			} else if((InputManager.GetAxis("Vertical_P1", PlayerID.One) == -1f
 				|| InputManager.GetAxis("DPADVertical_P1", PlayerID.One) == -1f
 				|| InputManager.GetButtonDown("DPADDown_P1", PlayerID.One)) && navTimer < 0) {
+				SFXManager.instance.source.PlayOneShot(SFXManager.instance.menuClick);
 				navTimer = 0.1f;
 				EventSystem cur = EventSystem.current;
 				GameObject curSelectedGameObject = EventSystem.current.currentSelectedGameObject;

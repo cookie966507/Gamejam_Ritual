@@ -52,7 +52,7 @@ namespace Assets.Scripts.Data
 		private Enums.Characters winningCharacter;
 		private bool gameWon;
 		private float winTimer;
-		private GameObject winningCharacterSprite;
+		private GameObject winningCharacterSprite, winText;
 
 		private float veryFirstTimer = 4f;
 		
@@ -124,6 +124,7 @@ namespace Assets.Scripts.Data
 			dialogHolder.GetComponent<SpriteRenderer>().sprite = currentGame.instructions;
 
 			winningCharacterSprite = GameObject.Find("WinningCharacterSprite");
+			winText = GameObject.Find("WinText");
 
         }
 
@@ -175,7 +176,7 @@ namespace Assets.Scripts.Data
 						demandingTimer = 5f;
 						transitionTimer2 = 15f;
 						currentGame = games[Random.Range(0, games.Count)];
-						Debug.Log("Next game chosen: " + currentGame.name);
+//						Debug.Log("Next game chosen: " + currentGame.name);
 					} else {
 						demandingTimer -= Time.deltaTime;
 
@@ -183,6 +184,7 @@ namespace Assets.Scripts.Data
 							transitionTimer2 = 5f;
 							demandingTimer = 10f;
 							Camera.main.GetComponent<Animator>().SetTrigger("GodDemands");
+							SFXManager.instance.source.PlayOneShot(SFXManager.instance.RandomGodTalk());
 							dialogHolder.GetComponent<SpriteRenderer>().sprite = currentGame.instructions;
 						}
 
@@ -203,6 +205,7 @@ namespace Assets.Scripts.Data
 					for(int i = 0; i < controllers.Count; i++) {
 						if(controllers[i].Character == winningCharacter) {
 							winningCharacterSprite.GetComponent<Image>().sprite = controllers[i].Sprite.GetComponent<SpriteRenderer>().sprite;
+							winText.GetComponent<Text>().text = "Congratulations! " + controllers[i].Character + " Was Sacrificed!";
 							break;
 						}
 					}
