@@ -29,7 +29,8 @@ namespace Assets.Scripts.Level
 		void OnTriggerEnter2D(Collider2D col) {
 			if(col.GetComponent<Tinder>()) {
 				Destroy(col.gameObject);
-
+				transform.GetChild(0).GetComponent<ParticleSystem>().Emit(200);
+				transform.GetChild(0).GetComponent<ParticleSystem>().Play();
 				fuel += 4f;
 			}
 		}
