@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Hitbox
   - Blood
+  - Baskets
   layers:
   - Default
   - TransparentFX

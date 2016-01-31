@@ -8,6 +8,8 @@ namespace Assets.Scripts.Level
     public class Fish : SpriteObject
     {
         private FishMinigame game;
+        [SerializeField]
+        private GameObject splash;
 
         void OnEnable()
         {
@@ -36,12 +38,17 @@ namespace Assets.Scripts.Level
 
         void OnTriggerEnter2D(Collider2D col)
         {
-            if(col.transform.tag.Equals("Player"))
+            if (col.transform.root.tag.Equals("Player"))
             {
-                if(Mathf.Abs(GetComponent<SpriteRenderer>().sortingOrder - col.GetComponent<SpriteRenderer>().sortingOrder) < 100)
+                if (Mathf.Abs(GetComponent<SpriteRenderer>().sortingOrder - col.GetComponent<SpriteRenderer>().sortingOrder) < 100)
                 {
-                    game.FishCaught(col.GetComponent<Controller>().ID);
+                    Basket b = col.GetComponent<Basket>();
+                    if (b == null) return;
+                    Util.Enums.Characters character = col.GetComponent<Basket>().Character;
+                    game.FishCaught(GameManager.instance.CharacterToPlayer[character]);
+                    Instantiate(splash, sprite.position + Vector3.down, Quaternion.Euler(new Vector3(-90, 0, 0)));
                     Destroy(transform.root.gameObject);
+                    Debug.Log("Caught");
                 }
             }
         }

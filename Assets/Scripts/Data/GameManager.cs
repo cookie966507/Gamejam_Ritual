@@ -160,12 +160,12 @@ namespace Assets.Scripts.Data
 					if(veryFirstTimer <= 0) {
                     	currentGame.Run();
 					}
+
                 }
                 else
                 {
 
 					if(!transitionStarted) {
-						Debug.Log("Transition Started");
 						transitionStarted = true;
 						if(IncrementPlayerScore(currentGame.Winners)) {
 							inGame = false;
@@ -180,7 +180,6 @@ namespace Assets.Scripts.Data
 						demandingTimer -= Time.deltaTime;
 
 						if(demandingTimer <= 0) {
-							Debug.Log("God is demanding");
 							transitionTimer2 = 5f;
 							demandingTimer = 10f;
 							Camera.main.GetComponent<Animator>().SetTrigger("GodDemands");
@@ -190,7 +189,6 @@ namespace Assets.Scripts.Data
 						transitionTimer2 -= Time.deltaTime;
 
 						if(transitionTimer2 <= 0) {
-							Debug.Log("Next game init");
 							currentGame.Init();
 							transitionStarted = false;
 						}

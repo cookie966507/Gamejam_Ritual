@@ -9,8 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 463722}
   - 114: {fileID: 11441952}
-  - 114: {fileID: 11438362}
-  - 114: {fileID: 11472252}
   m_Layer: 0
   m_Name: FishMinigame
   m_TagString: Untagged
@@ -30,17 +28,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11438362
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 185790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b23e1533d2795243a8856154e633013, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11441952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,18 +41,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finished: 0
   timer: 0
-  fishPrefab: {fileID: 199840, guid: 8199952faf8772848b0926877d202a5f, type: 2}
---- !u!114 &11472252
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 185790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b23e1533d2795243a8856154e633013, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  instructions: {fileID: 0}
+  fishPrefab: {fileID: 113946, guid: e8c2cdc5048f62a4f9e37d09fb537ed7, type: 2}
+  baskets: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -76,7 +54,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: fishPrefab
       value: 
-      objectReference: {fileID: 199840, guid: 8199952faf8772848b0926877d202a5f, type: 2}
+      objectReference: {fileID: 113946, guid: e8c2cdc5048f62a4f9e37d09fb537ed7, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 185790}
