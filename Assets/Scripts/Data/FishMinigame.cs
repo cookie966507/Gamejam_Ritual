@@ -20,12 +20,20 @@ namespace Assets.Scripts.Data
         
         public override void Init()
         {
+			finished = false;
             spawnTimer = gameObject.AddComponent<RepetitionTimer>();
             spawnTimer.Initialize(0.5f, "Fish Spawner");
             spawnTimer.TimeOut += new RepetitionTimer.TimerEvent(SpawnFish);
             spawnTimer.FinalTick += new RepetitionTimer.TimerEvent(SpawnFish);
             fishCaught = new int[4];
             Winners = new System.Collections.Generic.List<PlayerID>();
+
+			for(int i = 0; i < GameManager.instance.AllPlayers.Count; i++)
+			{
+				GameManager.instance.AllPlayers[i].LifeComponent.Health = 100;
+				GameManager.instance.AllPlayers[i].Anim.SetBool("Stay Dead", false);
+				GameManager.instance.AllPlayers[i].Active = true;
+			}
         }
 
         private void SpawnFish(RepetitionTimer t)

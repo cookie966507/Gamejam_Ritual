@@ -2875,6 +2875,7 @@ MonoBehaviour:
   - {fileID: 170272, guid: 36ea5167cd60c446fbe3071dbe448800, type: 2}
   games:
   - {fileID: 311224516}
+  - {fileID: 1172759256}
   inGame: 0
   field: {fileID: 0}
 --- !u!4 &760457823
@@ -4978,6 +4979,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1172759256 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11441952, guid: 00e6b4c3541606b4d8c06c46f138e584,
+    type: 2}
+  m_PrefabInternal: {fileID: 1442639170}
+  m_Script: {fileID: 11500000, guid: abf04848c16fc744db2320d5ab3898cf, type: 3}
 --- !u!1 &1199554583
 GameObject:
   m_ObjectHideFlags: 0
@@ -5340,6 +5347,11 @@ Prefab:
       propertyPath: fishPrefab
       value: 
       objectReference: {fileID: 113946, guid: e8c2cdc5048f62a4f9e37d09fb537ed7, type: 2}
+    - target: {fileID: 11441952, guid: 00e6b4c3541606b4d8c06c46f138e584, type: 2}
+      propertyPath: instructions
+      value: 
+      objectReference: {fileID: 21300000, guid: 7f18fbfdf7cba4417a6d3581c372650d,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 11438362, guid: 00e6b4c3541606b4d8c06c46f138e584, type: 2}
     - {fileID: 11472252, guid: 00e6b4c3541606b4d8c06c46f138e584, type: 2}
@@ -5951,6 +5963,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11482038, guid: e64fbbf024086b44d8d73718389589bd, type: 2}
+      propertyPath: instructions
+      value: 
+      objectReference: {fileID: 21300000, guid: 719d75a81a74c48c08863c2e39bf7898,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e64fbbf024086b44d8d73718389589bd, type: 2}
   m_IsPrefabParent: 0

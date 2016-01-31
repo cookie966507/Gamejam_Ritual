@@ -29,6 +29,7 @@ namespace Assets.Scripts.Level
 
         public void UpdateScale(float ratio)
         {
+//			Debug.Log(ratio);
             targetHeight = maxHeight * ratio;
         }
     } 
