@@ -21,18 +21,21 @@ namespace Assets.Scripts.Player
 
         void Update()
         {
-            controller.Anim.SetBool("Club", meleeEnabled);
-            if (rolling)
-            {
-                rollTimer += Time.deltaTime;
-                rollSlerp = Mathf.SmoothDamp(rollSlerp, targetSlerp, ref rollVel, slerpSpeed);
-                if(rollTimer >= rollTime)
+            if (Data.GameManager.instance.inGame)
                 {
-                    Reset();
-                }
-                else
+                controller.Anim.SetBool("Club", meleeEnabled);
+                if (rolling)
                 {
-                    Roll(rollDir);
+                    rollTimer += Time.deltaTime;
+                    rollSlerp = Mathf.SmoothDamp(rollSlerp, targetSlerp, ref rollVel, slerpSpeed);
+                    if (rollTimer >= rollTime)
+                    {
+                        Reset();
+                    }
+                    else
+                    {
+                        Roll(rollDir);
+                    }
                 }
             }
         }
@@ -82,6 +85,7 @@ namespace Assets.Scripts.Player
 
         public void Reset()
         {
+            if (!Data.GameManager.instance.inGame) return;
             rollTimer = 0;
             rolling = false;
             rollSlerp = rollSpeed;

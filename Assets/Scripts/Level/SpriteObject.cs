@@ -23,11 +23,12 @@ namespace Assets.Scripts.Level
         void OnEnable()
         {
             UpdateSortingLayer();
+            Init();
         }
 
         void OnDisable()
         {
-            if(sprite) sprite.localPosition = initPosition;
+            sprite.localPosition = initPosition;
             force = 0f;
             falling = false;
         }
