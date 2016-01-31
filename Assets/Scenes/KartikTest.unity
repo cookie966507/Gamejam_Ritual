@@ -4291,6 +4291,11 @@ Prefab:
       propertyPath: logs
       value: 
       objectReference: {fileID: 177962, guid: a6cb95549211b4eb29d043520d6b1d6e, type: 2}
+    - target: {fileID: 11445774, guid: d253d604aa1d34b829116855e3f7ffe0, type: 2}
+      propertyPath: instructions
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ed49e45afae249edadcc102d0d4c52c,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d253d604aa1d34b829116855e3f7ffe0, type: 2}
   m_IsPrefabParent: 0

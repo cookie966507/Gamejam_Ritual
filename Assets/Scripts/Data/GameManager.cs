@@ -38,6 +38,8 @@ namespace Assets.Scripts.Data
 
         private Dictionary<Enums.Characters, PlayerID> characterToPlayer;
 
+		private float inbetweenAnimationFloat;
+
         // Sets up singleton instance. Will remain if one does not already exist in scene
         void Awake()
         {
@@ -87,7 +89,7 @@ namespace Assets.Scripts.Data
                     currentGame = games[Random.Range(0, games.Count)];
                 }
 
-                //startInBetweenAnimation
+                
             }
         }
 
