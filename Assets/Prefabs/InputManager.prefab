@@ -213,6 +213,34 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 0
+    - name: LB_P1
+      description: 
+      positive: 354
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
+    - name: RB_P1
+      description: 
+      positive: 355
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
     - name: DPADHorizontal_P1
       description: 
       positive: 0
@@ -241,7 +269,7 @@ MonoBehaviour:
       type: 3
       axis: 7
       joystick: 0
-    - name: RightTrigger
+    - name: RightTrigger_P1
       description: 
       positive: 0
       negative: 0
@@ -255,7 +283,7 @@ MonoBehaviour:
       type: 3
       axis: 9
       joystick: 0
-    - name: LeftTrigger
+    - name: LeftTrigger_P1
       description: 
       positive: 0
       negative: 0
@@ -440,6 +468,34 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 0
+    - name: LB_P1
+      description: 
+      positive: 363
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
+    - name: RB_P1
+      description: 
+      positive: 364
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
     - name: DPADLeft_P1
       description: 
       positive: 357
@@ -496,7 +552,7 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 0
-    - name: RightTrigger
+    - name: RightTrigger_P1
       description: 
       positive: 0
       negative: 0
@@ -510,7 +566,7 @@ MonoBehaviour:
       type: 3
       axis: 5
       joystick: 0
-    - name: LeftTrigger
+    - name: LeftTrigger_P1
       description: 
       positive: 0
       negative: 0
@@ -695,6 +751,34 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 0
+    - name: LB_P1
+      description: 
+      positive: 354
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
+    - name: RB_P1
+      description: 
+      positive: 355
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
     - name: DPADHorizontal_P1
       description: 
       positive: 0
@@ -723,7 +807,7 @@ MonoBehaviour:
       type: 3
       axis: 7
       joystick: 0
-    - name: RightTrigger
+    - name: RightTrigger_P1
       description: 
       positive: 0
       negative: 0
@@ -737,7 +821,7 @@ MonoBehaviour:
       type: 3
       axis: 5
       joystick: 0
-    - name: LeftTrigger
+    - name: LeftTrigger_P1
       description: 
       positive: 0
       negative: 0
@@ -769,7 +853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97728f80395fbf42a5e00b6d740d5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputConfiguration: OSX_GamePad
+  _inputConfiguration: OSX_Gamepad
   _numberOfClones: 3
 --- !u!114 &11467964
 MonoBehaviour:
@@ -782,7 +866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97728f80395fbf42a5e00b6d740d5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputConfiguration: Linux_GamePad
+  _inputConfiguration: Linux_Gamepad
   _numberOfClones: 3
 --- !u!114 &11493406
 MonoBehaviour:
@@ -795,7 +879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97728f80395fbf42a5e00b6d740d5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputConfiguration: Windows_GamePad
+  _inputConfiguration: Windows_Gamepad
   _numberOfClones: 3
 --- !u!1001 &100100000
 Prefab:

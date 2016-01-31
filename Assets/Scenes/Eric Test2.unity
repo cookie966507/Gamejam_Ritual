@@ -128,6 +128,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 123394, guid: a92fcbc2bf100414684227a9389ede3d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a92fcbc2bf100414684227a9389ede3d, type: 2}
   m_IsPrefabParent: 0
@@ -244,6 +248,10 @@ Prefab:
     - target: {fileID: 11423362, guid: 36ea5167cd60c446fbe3071dbe448800, type: 2}
       propertyPath: character
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 170272, guid: 36ea5167cd60c446fbe3071dbe448800, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36ea5167cd60c446fbe3071dbe448800, type: 2}
@@ -3559,6 +3567,10 @@ Prefab:
       propertyPath: inputConfigurations.Array.data[2].axes.Array.data[71].joystick
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 126362, guid: fc1ab99d3dc953949ab933c5c773a303, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc1ab99d3dc953949ab933c5c773a303, type: 2}
   m_IsPrefabParent: 0
@@ -3662,6 +3674,10 @@ Prefab:
     - target: {fileID: 11443676, guid: 82843334357b34acebd7fae755cf8b4f, type: 2}
       propertyPath: character
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 133748, guid: 82843334357b34acebd7fae755cf8b4f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 82843334357b34acebd7fae755cf8b4f, type: 2}
@@ -4099,7 +4115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &767091689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4114,6 +4130,7 @@ MonoBehaviour:
   players: []
   games:
   - {fileID: 2107048173}
+  inGame: 0
   field: {fileID: 727848916}
 --- !u!4 &767091690
 Transform:
@@ -4242,6 +4259,10 @@ Prefab:
     - target: {fileID: 11402926, guid: bfb6ad30251f8460287b1d816fd6c6dd, type: 2}
       propertyPath: character
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 121306, guid: bfb6ad30251f8460287b1d816fd6c6dd, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bfb6ad30251f8460287b1d816fd6c6dd, type: 2}
